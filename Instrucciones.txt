@@ -1,0 +1,14 @@
+main 
+registrar pasajeros a vuelo 
+confirmar vuelo o pasajero
+ver historial vuelo pasajero 
+listar vuelos 
+filtrar vuelos
+agregar vuelo 
+crear pasajero 
+editar vuelo 
+eliminar vuelo, Estas seguro que desea eliminar vuelo?
+eliminar pasajer o modificar pasajero 
+crear pasajero 
+historial vuelos
+

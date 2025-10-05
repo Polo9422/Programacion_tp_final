@@ -5,3 +5,4 @@ Implementa un sistema de check-in donde los pasajeros pueden registrarse antes d
 Si el vuelo está lleno, los pasajeros no pueden registrarse. 
 Además, permite ver el historial de vuelos de un pasajero y mostrar qué vuelos están llenos o con asientos disponibles.
 */
+
