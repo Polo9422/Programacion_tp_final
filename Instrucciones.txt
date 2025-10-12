@@ -14,9 +14,3 @@ historial vuelos
 
 main va a solo ejecutar las funciones 
 agregar datos a pasajero como nacionalidad, pasaporte, edad, etc, alguno mas importante
-
-¿Que hace main?
-crear un vuelo 
-asigna un pasajero a un vuelo 
-mira los vuelos disponibles (por fecha, destino, orignen, y si hay asiento o no)
-mira historial de vuelos de un pasajero 
