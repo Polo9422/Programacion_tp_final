@@ -11,6 +11,3 @@ eliminar vuelo, Estas seguro que desea eliminar vuelo?
 eliminar pasajer o modificar pasajero 
 crear pasajero 
 historial vuelos
-
-main va a solo ejecutar las funciones 
-agregar datos a pasajero como nacionalidad, pasaporte, edad, etc, alguno mas importante
