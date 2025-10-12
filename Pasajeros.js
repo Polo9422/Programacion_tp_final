@@ -1,11 +1,6 @@
-// passenger.js
-class Pasajeros {
-  constructor(id, nombre, apellido, dni) {
-    this.id = id;
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.dni = dni;
-  }
-}
-
-export default Pasajeros;
+// Pasajeros.js
+export const pasajeros = [
+  { id: 1, nombre: "Juan Pérez" },
+  { id: 2, nombre: "María López" },
+  { id: 3, nombre: "Carlos Gómez" }
+];

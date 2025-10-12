@@ -17,7 +17,13 @@ agregar datos a pasajero como nacionalidad, pasaporte, edad, etc, alguno mas imp
 
 ¿Que hace main?
 Crea un vuelo (cuestionario con prompsync para rellenar datos del objeto de vuelo)
-Registra un pasajero a un vuelo (cuestionario con prompsync para rellenar datos del objeto pasajero)
-Elije (listar) un vuelo( filtra por fecha, Franja de salida(mañana, medio dia, tarde, noche), disponibilidad, nombre de aerolinea, o precio )
+Registra un pasajero a un vuelo (cuestionario con prompsync para rellenar datos del objeto pasajero, asiento id, )
+consulta de vuelos ( disponibilidad, filtra por fecha, Franja de salida(mañana, medio dia, tarde, noche), nombre de aerolinea, o precio )
 Consulta historial de vuelo ( filtro por vuelo o pasajero)
 Mdoificar vuelo ( filtra por pasajero y se da de baja o se modifica algun dato del resgistro )
+
+¿Que hay en carpeta Aerolinea?
+archivo aerloniaService.js (funcion que crea aerolineas con fecha apartir de 31/10/2025, )
+archivo modeloAerolinea.js (Modelado de objeto de aerolineas)
+
+¿Que hay en Pasajeros?
