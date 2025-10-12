@@ -14,3 +14,10 @@ historial vuelos
 
 main va a solo ejecutar las funciones 
 agregar datos a pasajero como nacionalidad, pasaporte, edad, etc, alguno mas importante
+
+¿Que hace main?
+Crea un vuelo (cuestionario con prompsync para rellenar datos del objeto de vuelo)
+Registra un pasajero a un vuelo (cuestionario con prompsync para rellenar datos del objeto pasajero)
+Elije (listar) un vuelo( filtra por fecha, Franja de salida(mañana, medio dia, tarde, noche), disponibilidad, nombre de aerolinea, o precio )
+Consulta historial de vuelo ( filtro por vuelo o pasajero)
+Mdoificar vuelo ( filtra por pasajero y se da de baja o se modifica algun dato del resgistro )
