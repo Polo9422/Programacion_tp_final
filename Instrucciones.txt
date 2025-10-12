@@ -12,3 +12,4 @@ eliminar pasajer o modificar pasajero
 crear pasajero 
 historial vuelos
 
+main va a solo ejecutar las funciones 
