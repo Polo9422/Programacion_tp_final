@@ -1,6 +1,7 @@
 import { modeloAerolinea } from './modeloAerolineas.js';
 
 export class AerolineaService {
+
   constructor() {
     this.aerolineas = [];
     this.historialVuelos = {}; // historial por id de pasajero
@@ -44,12 +45,13 @@ export class AerolineaService {
     return new modeloAerolinea(id, vuelo, fecha, destino, hora, tiempoVuelo, nombre, origen, precio, salida);
   }
 
+
   // Generar varios vuelos
   generarAerolineas(cantidad) {
     this.aerolineas = [];
     for (let i = 1; i <= cantidad; i++) {
       const nueva = this.crearAerolineaAleatoria(i);
-      this.aerolineas.push(nueva);
+      pusheador(nueva,this.aerolineas);
     }
     return this.aerolineas;
   }
@@ -78,6 +80,9 @@ export class AerolineaService {
     }
   }
 }
+function pusheador(elemento, lista){
+    lista.push(elemento)
+   }
 
 // ========== Ejecución directa ==========
 const servicio = new AerolineaService();
