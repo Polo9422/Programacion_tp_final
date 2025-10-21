@@ -13,7 +13,7 @@
 - Eliminar vuelo (confirmar: ¿Estás seguro que deseas eliminar vuelo?)
 - Eliminar o modificar pasajero
 - Historial de vuelos
-
+- Propiedades de CheckIn
 ## Descripción de main
 main ejecuta las funciones principales:
 - Crear un vuelo (cuestionario con prompsync para rellenar datos del objeto vuelo).
