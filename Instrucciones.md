@@ -28,5 +28,16 @@ main ejecuta las funciones principales:
 - aerolineaService.js — funciones para crear aerolíneas (ej.: crear aerolíneas a partir de 31/10/2025).
 - modeloAerolinea.js — modelado del objeto aerolínea.
 
+- aeroline: {
+	id: string,
+	nombreVuelo: string,
+	origen: string,
+	destino: string,
+	fechaSalida: date,
+	duracion: number,
+	asientosLibre: number,
+}
+
+
 ### Pasajeros
 - (pendiente: describir archivos y modelo de datos)
