@@ -16,23 +16,23 @@ const menuVuelo = function (){
         console.log(" 6 - Registrar pasajero vuelo"); //?
         console.log(" 0 - Volver");
         switch (prompt("Elija una opcion:")){
-        case "1":
-            //crearVuelo();
-            //crear la funcion "crearVueloPorPrompt()"
-            console.clear();
-            const id = servicio.vuelos.length + 1;
-            const nombreVuelo = prompt("Nombre del vuelo: ");
-            const origen = prompt("Origen: ");
-            const destino = prompt("Destino: ");
-            const fechaSalida = prompt("Fecha de salida (YYYY-MM-DD): ");
-            const duracion = Number(prompt("Duración (horas): "));
-            const asientosLibre = Number(prompt("Asientos disponibles: "));
-            const precio = Number(prompt("Precio del vuelo: "));
-            const vuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio);
-            servicio.crearVuelo(vuelo);
-            console.log("crearVuelo()");
-            prompt("Presione ENTER para continuar...");
-            break;
+case "1":
+  console.clear();
+  const id = servicio.vuelos.length + 1;
+  const nombreVuelo = prompt("Nombre del vuelo: ");
+  const origen = prompt("Origen: ");
+  const destino = prompt("Destino: ");
+  const fechaSalida = prompt("Fecha de salida (YYYY-MM-DD): ");
+  const duracion = Number(prompt("Duración (horas): "));
+  const asientosLibre = Number(prompt("Asientos disponibles: "));
+  const precio = Number(prompt("Precio del vuelo: "));
+  const vuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, []);
+  
+  servicio.crearVuelo(vuelo); // ✅ guarda también en el JSON
+  console.log("✅ Vuelo creado correctamente.");
+  prompt("Presione ENTER para continuar...");
+  break;
+
         case "2":
             console.clear();
             //modificarVuelo();
@@ -182,7 +182,7 @@ const menu = function (){
         break;
     case "0":
         //console.log("Salir del sistema");
-        console.log("elegiste salir");
+        console.log("Elegiste salir");
         salir = true;
         break;
     default:

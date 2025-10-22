@@ -304,7 +304,7 @@
     "fechaSalida": "2025-10-23",
     "duracion": 5,
     "asientosLibre": 82,
-    "precio": 845.0,
+    "precio": 845,
     "listaDePasajeros": []
   },
   {
@@ -767,6 +767,17 @@
     "duracion": 9,
     "asientosLibre": 180,
     "precio": 870.3,
+    "listaDePasajeros": []
+  },
+  {
+    "id": 71,
+    "nombreVuelo": "fghfgh",
+    "origen": "dfgfd",
+    "destino": "fgfg",
+    "fechaSalida": "2025-02-22",
+    "duracion": 6,
+    "asientosLibre": 600,
+    "precio": 600,
     "listaDePasajeros": []
   }
 ]
