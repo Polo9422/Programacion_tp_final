@@ -1,15 +1,13 @@
-export class modeloAerolinea {
-  constructor(vuelo, fecha, destino, origen, hora, salida, tiempoVuelo, nombre, precio) {
-    this.vuelo = vuelo; // ID del vuelo
-    this.fecha = fecha;
-    this.destino = destino;
+export class ModeloAerolinea {
+  constructor(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, listaDePasajeros = []) {
+    this.id = id;
+    this.nombreVuelo = nombreVuelo;
     this.origen = origen;
-    this.hora = hora;
-    this.salida = salida; // mañana, mediodía, tarde, noche
-    this.tiempoVuelo = tiempoVuelo;
-    this.nombre = nombre;
+    this.destino = destino;
+    this.fechaSalida = fechaSalida;
+    this.duracion = duracion;
+    this.asientosLibre = asientosLibre;
     this.precio = precio;
-    //Cantidad de asientos disponibles
-    //Lista de pasJajeros
+    this.listaDePasajeros = listaDePasajeros;
   }
-} 
+}
