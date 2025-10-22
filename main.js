@@ -1,9 +1,9 @@
 import promptSync from "prompt-sync";
 import { AerolineaService } from "./Aerolineas/aerolineaService.js";
-import { ModeloAerolinea } from "./Aerolineas/modeloAerolinea.js";
+import { ModeloAerolineas } from "./Aerolineas/modeloAerolineas.js";
 const servicio = new AerolineaService();
-const PromptSync = require("prompt-sync");
-const prompt = PromptSync();
+//const PromptSync = require("prompt-sync");
+const prompt = promptSync();
 const menuVuelo = function (){
     let salir = false;
         console.clear();
@@ -28,7 +28,7 @@ const menuVuelo = function (){
             const duracion = Number(prompt("Duración (horas): "));
             const asientosLibre = Number(prompt("Asientos disponibles: "));
             const precio = Number(prompt("Precio del vuelo: "));
-            const vuelo = new ModeloAerolinea(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio);
+            const vuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio);
             servicio.crearVuelo(vuelo);
             console.log("crearVuelo()");
             prompt("Presione ENTER para continuar...");

@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { ModeloAerolinea } from "./modeloAerolinea.js";
+import { ModeloAerolineas } from "./modeloAerolineas.js";
 
 export class AerolineaService {
   constructor() {
@@ -9,7 +9,7 @@ export class AerolineaService {
   }
 
   cargarVuelos() {
-    const ruta = path.resolve("./vuelos_con_pasajeros_precio.json");
+    const ruta = path.resolve("./vuelos.json");
     const contenido = fs.readFileSync(ruta, "utf-8");
     this.vuelos = JSON.parse(contenido);
     console.log(`✅ ${this.vuelos.length} vuelos cargados.`);

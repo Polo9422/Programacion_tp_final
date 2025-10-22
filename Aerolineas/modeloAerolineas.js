@@ -1,4 +1,4 @@
-export class ModeloAerolinea {
+export class ModeloAerolineas {
   constructor(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, listaDePasajeros = []) {
     this.id = id;
     this.nombreVuelo = nombreVuelo;
