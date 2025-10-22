@@ -1,4 +1,4 @@
-const PromptSync = require("prompt-sync");
+import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 const menuVuelo = function (){
     let salir = false;
