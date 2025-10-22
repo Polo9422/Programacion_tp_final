@@ -122,9 +122,8 @@ const menu = function (){
     default:
         console.log("Ingrese una opción correcta.");
         break; 
-    return !salir;
     }
-    
+    return !salir;
 }
 const main = function (){
     while (menu());
