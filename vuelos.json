@@ -688,9 +688,14 @@
     "destino": "Roma",
     "fechaSalida": "2025-10-27",
     "duracion": 2,
-    "asientosLibre": 46,
+    "asientosLibre": 45,
     "precio": 611.23,
-    "listaDePasajeros": []
+    "listaDePasajeros": [
+      {
+        "nombre": "juan ",
+        "dni": "37940350"
+      }
+    ]
   },
   {
     "id": "64",
@@ -778,6 +783,17 @@
     "duracion": 6,
     "asientosLibre": 600,
     "precio": 600,
+    "listaDePasajeros": []
+  },
+  {
+    "id": 72,
+    "nombreVuelo": "juan \r}",
+    "origen": "buenos aires",
+    "destino": "jonkon",
+    "fechaSalida": "2025-03-27",
+    "duracion": 23,
+    "asientosLibre": 50,
+    "precio": 900,
     "listaDePasajeros": []
   }
 ]
