@@ -13,7 +13,7 @@
 - Eliminar vuelo (confirmar: ¿Estás seguro que deseas eliminar vuelo?)
 - Eliminar o modificar pasajero christian OK
 - Historial de vuelos
-
+- Propiedades de CheckIn
 ## Descripción de main
 main ejecuta las funciones principales:
 - Crear un vuelo (cuestionario con prompsync para rellenar datos del objeto vuelo).
@@ -27,6 +27,19 @@ main ejecuta las funciones principales:
 ### Aerolinea
 - aerolineaService.js — funciones para crear aerolíneas (ej.: crear aerolíneas a partir de 31/10/2025).
 - modeloAerolinea.js — modelado del objeto aerolínea.
+
+aeroline: {
+	id: string,
+	nombreVuelo: string,
+	origen: string,
+	destino: string,
+	fechaSalida: date,
+	duracion: number,
+    precio: numbeer,
+	asientosLibre: number, 
+	listaDePasajeros: [],
+}
+
 
 ### Pasajeros
 - (pendiente: describir archivos y modelo de datos)
