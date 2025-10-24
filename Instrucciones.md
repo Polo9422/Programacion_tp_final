@@ -8,10 +8,10 @@
 - Listar vuelos
 - Filtrar vuelos
 - Agregar vuelo
-- Crear pasajero
+- Crear pasajero OK
 - Editar vuelo
 - Eliminar vuelo (confirmar: ¿Estás seguro que deseas eliminar vuelo?)
-- Eliminar o modificar pasajero
+- Eliminar o modificar pasajero christian OK
 - Historial de vuelos
 
 ## Descripción de main

@@ -1,4 +1,5 @@
 // passenger.js
+// // Borrar
 class Pasajeros {
   constructor(id, nombre, apellido, dni) {
     this.id = id;
