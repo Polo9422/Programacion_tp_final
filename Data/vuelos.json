@@ -795,5 +795,16 @@
     "asientosLibre": 50,
     "precio": 900,
     "listaDePasajeros": []
+  },
+  {
+    "id": 73,
+    "nombreVuelo": "juan",
+    "origen": "asfsdfasd",
+    "destino": "adsfadsfa",
+    "fechaSalida": "adsfadf",
+    "duracion": null,
+    "asientosLibre": null,
+    "precio": null,
+    "listaDePasajeros": []
   }
 ]
