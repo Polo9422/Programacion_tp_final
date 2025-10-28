@@ -806,5 +806,16 @@
     "asientosLibre": null,
     "precio": null,
     "listaDePasajeros": []
+  },
+  {
+    "id": 74,
+    "nombreVuelo": "Christian",
+    "origen": "Brasil",
+    "destino": "Argentina",
+    "fechaSalida": "2025-12-01",
+    "duracion": 12,
+    "asientosLibre": 2,
+    "precio": 12,
+    "listaDePasajeros": []
   }
 ]

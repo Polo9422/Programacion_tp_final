@@ -78,68 +78,66 @@ const menuVuelo = function (){
     
 }
 
-const menuPasajero = function (){
+const menuPasajero = function () {
     let salir = false;
     console.clear();
-        console.log("Elija una opcion");
-        console.log(" 1 - Registrar pasajero a vuelo");
-        console.log(" 2 - Modificar datos de pasajero");
-        console.log(" 3 - Borrar pasajero de vuelo");
-        console.log(" 4 - Lista de pasajeros");
-        console.log(" 5 - Filtrar pasajero");
-        console.log(" 0 - Volver");
-        switch (prompt("Elija una opcion:")){
+    console.log("Elija una opción");
+    console.log(" 1 - Registrar pasajero a vuelo");
+    console.log(" 2 - Modificar datos de pasajero");
+    console.log(" 3 - Borrar pasajero");
+    console.log(" 4 - Lista de pasajeros");
+    console.log(" 5 - Filtrar pasajero");
+    console.log(" 6 - Registrar pasajero a vuelo (base)");
+    console.log(" 0 - Volver");
+
+    switch (prompt("Elija una opción: ")) {
         case "1":
             console.clear();
             servicioPasajero.crearPasajero();
-            prompt("Presione ENTER para continuar...");
             break;
+
         case "2":
             console.clear();
-            servicioPasajero.modificarPasajero();
-            console.log("modificarPasajero()");
-            prompt("Presione ENTER para continuar...");
+            servicioPasajero.modificarPasajero(); 
             break;
+
         case "3":
             console.clear();
             servicioPasajero.borrarPasajero();
-            console.log("borrarPasajero()");
-            prompt("Presione ENTER para continuar...");
             break;
+
         case "4":
             console.clear();
-            servicioPasajero.listarPasajero();
-            console.log("listarPasajero()");
-            prompt("Presione ENTER para continuar...");
+            servicioPasajero.listarPasajero(); 
             break;
+
         case "5":
             console.clear();
-            servicioPasajero.filtrarPasajero();
-            console.log("filtrarPasajero()");
-            prompt("Presione ENTER para continuar...");
+            servicioPasajero.filtrarPasajero(); 
             break;
+
         case "6":
             console.clear();
-            servicioPasajero.registrarPasajeroVuelo();
-            console.log("registrarPasajeroVuelo()");
-            prompt("Presione ENTER para continuar...");
+            servicioPasajero.registrarPasajeroVuelo(); 
             break;
+
         case "0":
             console.clear();
-            console.log("elegiste volver");
+            console.log("Elegiste volver");
             prompt("Presione ENTER para continuar...");
             salir = true;
             break;
+
         default:
             console.clear();
             console.log("Ingrese una opción correcta.");
             prompt("Presione ENTER para continuar...");
-            break; 
-        
-        }
+            break;
+    }
 
     return !salir;
-}
+};
+
 
 
 const menu = function (){
