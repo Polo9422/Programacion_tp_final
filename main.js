@@ -33,10 +33,10 @@ const menuVuelo = function (){
             prompt("Presione ENTER para continuar...");
             break;
         case "4":
-            console.clear();
-            servicio.listarVuelos();
-            prompt("Presione ENTER para continuar...");
-            break;
+          console.clear();
+          servicio.listarVuelos();
+          prompt("Presione ENTER para continuar...");
+          break;
         case "5":
             console.clear();
             //filtrarVuelos();

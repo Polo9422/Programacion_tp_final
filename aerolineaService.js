@@ -43,19 +43,31 @@ export class AerolineaService {
     fs.writeFileSync(this.ruta, JSON.stringify(this.vuelos, null, 2), "utf-8");
   }
 
-  // 🔹 Listar vuelos (solo algunos campos)
-  listarVuelos() {
-    console.table(
-      this.vuelos.map((v) => ({
-        id: v.id,
-        nombreVuelo: v.nombreVuelo,
-        origen: v.origen,
-        destino: v.destino,
-        precio: v.precio,
-        asientosLibre: v.asientosLibre,
-      }))
-    );
-  }
+  // no se porque no funciona listar vuelos
+
+listarVuelos() {
+    console.clear();
+    console.log("=== Lista de Vuelos ===");
+
+    if (!this.vuelos || this.vuelos.length === 0) {
+        console.log("No hay vuelos disponibles.");
+    } else {
+        this.vuelos.forEach(vuelo => {
+            console.log(`ID: ${vuelo.id} | ${vuelo.nombreVuelo} | ${vuelo.origen} -> ${vuelo.destino}`);
+            console.log(`Fecha: ${vuelo.fechaSalida} | Duración: ${vuelo.duracion}h | Asientos: ${vuelo.asientosLibre} | Precio: $${vuelo.precio}`);
+            
+            if (!vuelo.listaDePasajeros || vuelo.listaDePasajeros.length === 0) {
+                console.log("Pasajeros: Ninguno\n");
+            } else {
+                vuelo.listaDePasajeros.forEach((p, i) => {
+                    console.log(`  ${i + 1}. ${p.nombre || "Sin nombre"} ${p.apellido || "Sin apellido"} | DNI: ${p.dni || "Sin DNI"}`);
+                });
+                console.log(""); // línea en blanco entre vuelos
+            }
+        });
+    }
+}
+
 
   // 🔹 Crear vuelo nuevo y guardar cambios
   crearVuelo(vuelo) {
