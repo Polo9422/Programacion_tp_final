@@ -1,14 +1,14 @@
 import fs from "fs";
 import path, { parse } from "path";
 import promptSync from "prompt-sync";
-import { ModeloAerolineas } from "./modeloAerolineas.js"; 
+import { ModeloAerolineas } from "../modelos/modeloVuelos.js"; 
 
 const prompt = promptSync();
 
-export class AerolineaService {
+export class vuelosService {
   constructor() {
     this.vuelos = [];
-    this.ruta = path.resolve("./Data/vuelos.json"); // Ruta al archivo JSON
+    this.ruta = path.resolve("./data/vuelos.json"); 
     this.cargarVuelos();
   }
   registrarVuelo() {
@@ -22,23 +22,23 @@ export class AerolineaService {
     const precio = Number(prompt("Precio del vuelo: "));
     const newvuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, []);
 
-    this.crearVuelo(newvuelo); // ✅ guarda también en el JSON
+    this.crearVuelo(newvuelo); // guarda también en el JSON
     console.log("✅ Vuelo creado correctamente.");
     prompt("Presione ENTER para continuar...");
   }
-  // 🔹 Leer los vuelos desde el JSON
+  // Leer los vuelos desde el JSON
   cargarVuelos() {
     if (fs.existsSync(this.ruta)) {
       const contenido = fs.readFileSync(this.ruta, "utf-8");
       this.vuelos = JSON.parse(contenido);
-      console.log(` ${this.vuelos.length} vuelos cargados.`);
+      //console.log(` ${this.vuelos.length} vuelos cargados.`);
     } else {
       console.log(" No se encontró el archivo vuelos.json. Se inicia vacío.");
       this.vuelos = [];
     }
   }
 
-  // 🔹 Guardar los vuelos actualizados en el JSON
+  // Guardar los vuelos actualizados en el JSON
   guardarVuelos() {
     fs.writeFileSync(this.ruta, JSON.stringify(this.vuelos, null, 2), "utf-8");
   }
@@ -46,10 +46,9 @@ export class AerolineaService {
   // CASE 1 Listar todos los vuelos. 
 
 listarVuelos() {
-    console.clear();
-    console.log("=== Lista de Vuelos ===");// encabezado visual
+    console.log("=== Lista de Vuelos ===");
 
-    if (!this.vuelos || this.vuelos.length === 0) { // verifica que la propiedad vuelos exista y tenga elementos.
+    if (!this.vuelos || this.vuelos.length === 0) { 
         console.log("No hay vuelos disponibles.");
     } else {
         this.vuelos.forEach(vuelo => {
@@ -73,19 +72,12 @@ listarVuelos() {
 }
 
 
-  // 🔹 Crear vuelo nuevo y guardar cambios
+  // Crear vuelo nuevo y guardar cambios
   crearVuelo(vuelo) {
     this.vuelos.push(vuelo);
-    this.guardarVuelos(); // guarda los cambios
+    this.guardarVuelos(); 
     console.log(`✈️ Vuelo ${vuelo.nombreVuelo} agregado con éxito.`);
   }
-
-  // 🔹 Buscar vuelo por ID
-buscarVueloPorId(id) {
-  const idNum = parseInt(id);
-  return this.vuelos.find(vuelo => vuelo.id === idNum);
-}
-
 
   // 🔹 Agregar pasajero y guardar cambios
   agregarPasajero(id, pasajero) {
@@ -94,14 +86,14 @@ buscarVueloPorId(id) {
 
     vuelo.listaDePasajeros.push(pasajero);
     vuelo.asientosLibre--;
-    this.guardarVuelos(); // guarda el JSON actualizado
+    this.guardarVuelos(); 
 
     console.log(`🧍‍♂️ Pasajero ${pasajero.nombre} agregado al vuelo ${vuelo.nombreVuelo}.`);
   }
 
   // CASE 2 Modificar un vuelo existente
 modificarVuelo() {
-  console.clear();
+
   const id = Number(prompt("Ingrese el ID del vuelo que desea modificar: "));
   const vuelo = this.buscarVueloPorId(id);
 
@@ -160,13 +152,22 @@ borrarVuelo() {
 }
 
 // CASE 6 Filtrar vuelos por ID
-filtrarVuelos(){
-    const idPasajeros = prompt("ID del vuelo: ");
-    const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
-    if (vueloEncontrado) {
-        console.table(vueloEncontrado.listaDePasajeros);
-    } else {
-  console.log("Vuelo no encontrado.");
+
+filtrarVuelos() {
+  const idPasajeros = prompt("ID del vuelo: ");
+  const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
+
+  if (vueloEncontrado) {
+    console.table(vueloEncontrado); // o console.log(vueloEncontrado)
+    return vueloEncontrado;         // <-- devuelve el vuelo completo
+  } else {
+    console.log("Vuelo no encontrado.");
+    return null;
   }
+}
+  // Buscar vuelo por ID
+buscarVueloPorId(id) {
+  const idNum = parseInt(id);
+  return this.vuelos.find(vuelo => vuelo.id === idNum);
 }
 }

@@ -1,13 +1,14 @@
 import promptSync from "prompt-sync";
-import { modelPasajero, Pasaporte,} from "./modeloPasajeros.js";
-import { pasajeros, pasaportes } from "./Data/Pasajeros.js";
+import { modelPasajero, calcularEdad} from "../modelos/modeloPasajeros.js";
+import path from "path";
+
 const prompt = promptSync();
 
 
-export class pasajeroService {
+export class pasajerosService {
   constructor() {
-    this.pasajeros = pasajeros;
-    this.pasaportes = pasaportes;
+    this.pasajeros = [];
+    this.ruta = path.resolve("./Data/pasajeros.json");
     }
 // Función para crear un pasajero
 
