@@ -1,4 +1,6 @@
+// Esta clase es una plantilla para cada pasajero
 class modelPasajero {
+  // Estas son las propiedades inicializadas en el constructor.
   constructor(nombre, apellido, dni, edad, telefono, direccion, email, genero, nacionalidad, fecha_de_nacimiento, pasaporte) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -10,10 +12,11 @@ class modelPasajero {
     this.genero = genero;
     this.nacionalidad = nacionalidad;
     this.fecha_de_nacimiento = fecha_de_nacimiento;
-    this.pasaporte = pasaporte; // se completará luego
+    this.pasaporte = pasaporte; // Se inicializa para completarla luego.
   }
 }
 
+// Lo mismo, define la plantilla del pasaporte
 class Pasaporte {
   constructor(numero_pasaporte, fecha_de_vencimiento, pais_de_emision, pasajero) {
     this.numero_pasaporte = numero_pasaporte;
@@ -24,6 +27,7 @@ class Pasaporte {
 }
 
 // --- PASAJEROS ---
+// Exporta un arreglo llamado pasajeros con 10 instancias de modelPasajero
 export const pasajeros = [
   new modelPasajero("Juan", "González", 35892145, 32, "+54 9 1123456789", "Av. Siempre Viva 742", "juan.gonzalez@gmail.com", "Masculino", "Argentina", "12/05/1993"),
   new modelPasajero("María", "Pérez", 42987564, 28, "+54 9 1132569874", "San Martín 456", "maria.perez@gmail.com", "Femenino", "Argentina", "23/08/1997"),
@@ -38,6 +42,7 @@ export const pasajeros = [
 ];
 
 // --- PASAPORTES (cada uno asociado a su pasajero) ---
+// looooo mesmooo que pasajeros un simple array con sus respectivos ID :)
 export const pasaportes = [
   new Pasaporte("A4567821", "15/09/2032", "Argentina", pasajeros[0]),
   new Pasaporte("B9845123", "22/03/2031", "Argentina", pasajeros[1]),

@@ -795,16 +795,5 @@
     "asientosLibre": null,
     "precio": null,
     "listaDePasajeros": []
-  },
-  {
-    "id": 73,
-    "nombreVuelo": "jilhk",
-    "origen": "hhk",
-    "destino": "khkhk",
-    "fechaSalida": "kkkkbk",
-    "duracion": null,
-    "asientosLibre": null,
-    "precio": null,
-    "listaDePasajeros": []
   }
 ]

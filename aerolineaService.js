@@ -1,5 +1,5 @@
 import fs from "fs";
-import path from "path";
+import path, { parse } from "path";
 import promptSync from "prompt-sync";
 import { ModeloAerolineas } from "./modeloAerolineas.js"; 
 
@@ -43,19 +43,35 @@ export class AerolineaService {
     fs.writeFileSync(this.ruta, JSON.stringify(this.vuelos, null, 2), "utf-8");
   }
 
-  // 🔹 Listar vuelos (solo algunos campos)
-  listarVuelos() {
-    console.table(
-      this.vuelos.map((v) => ({
-        id: v.id,
-        nombreVuelo: v.nombreVuelo,
-        origen: v.origen,
-        destino: v.destino,
-        precio: v.precio,
-        asientosLibre: v.asientosLibre,
-      }))
-    );
-  }
+  // CASE 1 Listar todos los vuelos. 
+
+listarVuelos() {
+    console.clear();
+    console.log("=== Lista de Vuelos ===");// encabezado visual
+
+    if (!this.vuelos || this.vuelos.length === 0) { // verifica que la propiedad vuelos exista y tenga elementos.
+        console.log("No hay vuelos disponibles.");
+    } else {
+        this.vuelos.forEach(vuelo => {
+          // Esto imprime la información principal de ese vuelo en una sola línea.
+            console.log(`ID: ${vuelo.id} | ${vuelo.nombreVuelo} | ${vuelo.origen} -> ${vuelo.destino}`);
+            // Esto imprime la información complementaria del vuelo: Fecha de salida, duración, asientos libres y precio.
+            console.log(`Fecha: ${vuelo.fechaSalida} | Duración: ${vuelo.duracion}h | Asientos: ${vuelo.asientosLibre} | Precio: $${vuelo.precio}`);
+            // si la lista de pasajeros está vacía o no existe, muestra "Ninguno". Si hay pasajeros, los lista uno por uno
+            if (!vuelo.listaDePasajeros || vuelo.listaDePasajeros.length === 0) {
+                console.log("Pasajeros: Ninguno\n");
+              
+            } else {
+              // Si hay pasajeros, los lista uno por uno
+                vuelo.listaDePasajeros.forEach((p, i) => {
+                    console.log(`  ${i + 1}. ${p.nombre || "Sin nombre"} ${p.apellido || "Sin apellido"} | DNI: ${p.dni || "Sin DNI"}`);
+                });
+                console.log(""); // línea en blanco entre vuelos
+            }
+        });
+    }
+}
+
 
   // 🔹 Crear vuelo nuevo y guardar cambios
   crearVuelo(vuelo) {
@@ -65,9 +81,11 @@ export class AerolineaService {
   }
 
   // 🔹 Buscar vuelo por ID
-  buscarVueloPorId(id) {
-    return this.vuelos.find((v) => v.id == id);
-  }
+buscarVueloPorId(id) {
+  const idNum = parseInt(id);
+  return this.vuelos.find(vuelo => vuelo.id === idNum);
+}
+
 
   // 🔹 Agregar pasajero y guardar cambios
   agregarPasajero(id, pasajero) {

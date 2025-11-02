@@ -56,7 +56,6 @@ crearPasajero() {
         console.log("🛂 Pasaporte creado y asignado al pasajero.");
         }
 
-        prompt("Presione ENTER para continuar...");
         }
 
 //CASE 2Función para modificar un pasajero
@@ -93,15 +92,28 @@ borrarPasajero() {
     console.log("=== Borrar Pasajero ===");
     const dni = parseInt(prompt("Ingrese el DNI del pasajero a eliminar: "));
     const index = pasajeros.findIndex((p) => p.dni === dni);
-
+// if index es -1 significa que no se encontró el pasajero. 
     if (index === -1) {
         console.log("❌ Pasajero no encontrado.");
     } else {
-        pasajeros.splice(index, 1);
-        console.log("Pasajero eliminado correctamente.");
+        const pasajero = pasajeros[index];
+        const confirmar = prompt(
+            `⚠️ El pasajero ${pasajero.nombre} ${pasajero.apellido} será eliminado. ¿Está seguro? (s/n): `
+        ).toLowerCase();
+
+        if (confirmar === "s") {
+            // eliminar pasajero
+            pasajeros.splice(index, 1);
+            console.log(`✅ El pasajero ${pasajero.nombre} ${pasajero.apellido} fue eliminado correctamente.`);
+        } else {
+            console.log(`❎ Operación cancelada. El pasajero ${pasajero.nombre} ${pasajero.apellido} no fue eliminado.`);
+        }
     }
-    prompt("Presione ENTER para continuar...");
-    }
+     prompt("Presione ENTER para continuar...");
+
+}
+
+
 
 // Listar todos los pasajeros
 
@@ -113,14 +125,15 @@ listarPasajero() {
         console.log("No hay pasajeros registrados.");
     } else {
         pasajeros.forEach((p, i) => {
-        console.log(
-            `#${i + 1} | ${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad} | Pasaporte: ${p.pasaporte || "No asignado"}`
-        );
+            console.log(
+                `#${i + 1} | ${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad} | Pasaporte: ${p.pasaporte || "No asignado"}`
+            );
         });
     }
 
-    prompt("Presione ENTER para continuar...");
-    }
+    prompt("Presione ENTER para continuar..."); // ← agregá esta línea
+}
+
 
 // Filtrar pasajeros por criterio
 
@@ -145,7 +158,6 @@ filtrarPasajero() {
         });
     }
 
-    prompt("Presione ENTER para continuar...");
     }
 
 // Registrar pasajero a un vuelo (base)
