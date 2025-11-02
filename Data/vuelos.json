@@ -817,5 +817,16 @@
     "asientosLibre": 2,
     "precio": 12,
     "listaDePasajeros": []
+  },
+  {
+    "id": 75,
+    "nombreVuelo": "A4567U",
+    "origen": "Pluton",
+    "destino": "Argentina",
+    "fechaSalida": "2025-10-10",
+    "duracion": 4,
+    "asientosLibre": 2,
+    "precio": 45,
+    "listaDePasajeros": []
   }
 ]

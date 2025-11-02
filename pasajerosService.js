@@ -92,7 +92,7 @@ borrarPasajero() {
     console.log("=== Borrar Pasajero ===");
     const dni = parseInt(prompt("Ingrese el DNI del pasajero a eliminar: "));
     const index = pasajeros.findIndex((p) => p.dni === dni);
-
+// if index es -1 significa que no se encontró el pasajero. 
     if (index === -1) {
         console.log("❌ Pasajero no encontrado.");
     } else {
@@ -102,6 +102,7 @@ borrarPasajero() {
         ).toLowerCase();
 
         if (confirmar === "s") {
+            // eliminar pasajero
             pasajeros.splice(index, 1);
             console.log(`✅ El pasajero ${pasajero.nombre} ${pasajero.apellido} fue eliminado correctamente.`);
         } else {

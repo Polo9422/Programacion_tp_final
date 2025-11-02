@@ -38,18 +38,22 @@ const menuVuelo = function (){
           prompt("Presione ENTER para continuar...");
           break;
         case "5":
-            console.clear();
-            //filtrarVuelos();
-            const idPasajeros = prompt("ID del vuelo: ");
-            const vueloEncontrado = servicio.buscarVueloPorId(idPasajeros);
-            if (vueloEncontrado) {
-                console.table(vueloEncontrado.listaDePasajeros);
-            } else {
-                console.log("Vuelo no encontrado.");
-            }
-            console.log("filtrarVuelo()");
-            prompt("Presione ENTER para continuar...");
-            break;
+        console.clear();
+        const idPasajeros = prompt("ID del vuelo: ");
+        const vueloEncontrado = servicio.buscarVueloPorId(idPasajeros);
+
+        if (!vueloEncontrado) {
+        console.log("❌ Vuelo no encontrado.");
+     } else if (!vueloEncontrado.listaDePasajeros || vueloEncontrado.listaDePasajeros.length === 0) {
+        console.log(`✈️ El vuelo ${vueloEncontrado.nombreVuelo} no tiene pasajeros registrados.`);
+    } else {
+        console.log(`✈️ Pasajeros del vuelo ${vueloEncontrado.nombreVuelo}:`);
+        console.table(vueloEncontrado.listaDePasajeros);
+    }
+
+    prompt("Presione ENTER para continuar...");
+    break;
+
         case "6":
             console.clear();
             //crear la funcion de registrarPasajeroVuelo();
