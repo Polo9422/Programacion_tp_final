@@ -1,10 +1,10 @@
 import promptSync from "prompt-sync";
-import { AerolineaService } from "./services/vuelosService.js";
-import {pasajeroService} from "./services/pasajerosService.js";
+import { AerolineaService } from "./aerolineaService.js";
+import {pasajeroService} from "./pasajerosService.js";
 //import { ModeloAerolineas } from "./modeloAerolineas.js";
 
-const servicio = new AerolineaService();
-const servicioPasajero = new pasajeroService();
+const servicio = new vuelosService();
+const servicioPasajero = new pasajerosService();
 const prompt = promptSync();
 const menuVuelo = function (){
     let salir = false;
@@ -14,47 +14,58 @@ const menuVuelo = function (){
         console.log(" 2 - Modificar vuelo");
         console.log(" 3 - Borrar vuelo");
         console.log(" 4 - Listar vuelos");
-        console.log(" 5 - Filtrar vuelos por ID");
+        console.log(" 5 - Buscar vuelos por ID");
         console.log(" 0 - Volver");
         switch (prompt("Elija una opcion:")){
         case "1":
-        console.clear();
             servicio.registrarVuelo();
             prompt("Presione ENTER para continuar...");
             break;
-
         case "2":
-            console.clear();
             servicio.modificarVuelo();
-            prompt("Presione ENTER para continuar...");
             break;
         case "3":
-            console.clear();
             servicio.borrarVuelo();
-            prompt("Presione ENTER para continuar...");
             break;
         case "4":
-          console.clear();
-          servicio.listarVuelos();
-          prompt("Presione ENTER para continuar...");
+            servicio.listarVuelos();
           break;
         case "5":
         console.clear();
-        filtrarVueloPorId();
-        prompt("Presione ENTER para continuar...");
-        break;
+        const idPasajeros = prompt("ID del vuelo: ");
+        const vueloEncontrado = servicio.buscarVueloPorId(idPasajeros);
 
-        case "0":
+        if (!vueloEncontrado) {
+        console.log("❌ Vuelo no encontrado.");
+     } else if (!vueloEncontrado.listaDePasajeros || vueloEncontrado.listaDePasajeros.length === 0) {
+        console.log(`✈️ El vuelo ${vueloEncontrado.nombreVuelo} no tiene pasajeros registrados.`);
+    } else {
+        console.log(`✈️ Pasajeros del vuelo ${vueloEncontrado.nombreVuelo}:`);
+        console.table(vueloEncontrado.listaDePasajeros);
+    }
+
+    prompt("Presione ENTER para continuar...");
+    break;
+
+        case "6":
             console.clear();
-            console.log("elgiste volver");
+            //crear la funcion de registrarPasajeroVuelo();
+            //registrarPasajeroVuelo();
+            const idVuelo = prompt("ID del vuelo: ");
+            const nombre = prompt("Nombre del pasajero: ");
+            const dni = prompt("DNI: ");
+            const pasajero = { nombre, dni };
+            servicio.agregarPasajero(idVuelo, pasajero);
+            console.log("registrarPasajeroVuelo()");
             prompt("Presione ENTER para continuar...");
+            break;
+        case "0":
+            console.log("elgiste volver");
             salir = true;
             break;
         default:
             console.log("Ingrese una opción correcta.");
-            prompt("Presione ENTER para continuar...");
             break; 
-        
         }
     return !salir;
     
