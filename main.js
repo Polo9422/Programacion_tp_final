@@ -1,6 +1,6 @@
 import promptSync from "prompt-sync";
-import { AerolineaService } from "./aerolineaService.js";
-import {pasajeroService} from "./pasajerosService.js";
+import { vuelosService } from "./services/vuelosService.js";
+import {pasajerosService} from "./services/pasajerosService.js";
 //import { ModeloAerolineas } from "./modeloAerolineas.js";
 
 const servicio = new vuelosService();

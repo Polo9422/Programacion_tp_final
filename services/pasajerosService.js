@@ -1,5 +1,4 @@
 import promptSync from "prompt-sync";
-import { modelPasajero, Pasaporte,} from "../modelos/modeloPasajeros.js";
 import { modelPasajero, calcularEdad} from "../modelos/modeloPasajeros.js";
 import path from "path";
 

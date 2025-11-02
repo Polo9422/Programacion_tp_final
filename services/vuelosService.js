@@ -1,7 +1,7 @@
 import fs from "fs";
 import path, { parse } from "path";
 import promptSync from "prompt-sync";
-import { ModeloAerolineas } from "../modelos/modeloVuelos.js"; 
+import { ModeloVuelos } from "../modelos/modeloVuelos.js"; 
 
 const prompt = promptSync();
 
@@ -20,9 +20,9 @@ export class vuelosService {
     const duracion = Number(prompt("Duración (horas): "));
     const asientosLibre = Number(prompt("Asientos disponibles: "));
     const precio = Number(prompt("Precio del vuelo: "));
-    const newvuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, []);
+    const nuevoVuelo = new ModeloVuelos(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, []);
 
-    this.crearVuelo(newvuelo); // guarda también en el JSON
+    this.crearVuelo(nuevoVuelo); // guarda también en el JSON
     console.log("✅ Vuelo creado correctamente.");
     prompt("Presione ENTER para continuar...");
   }
@@ -78,6 +78,7 @@ listarVuelos() {
     this.guardarVuelos(); 
     console.log(`✈️ Vuelo ${vuelo.nombreVuelo} agregado con éxito.`);
   }
+
   // 🔹 Agregar pasajero y guardar cambios
   agregarPasajero(id, pasajero) {
     const vuelo = this.buscarVueloPorId(id);
@@ -146,8 +147,8 @@ borrarVuelo() {
     console.log("Operación cancelada.");
   }
 
-}
-
+  }
+  // CASE 5 Buscar vuelos por ID
 filtrarVuelos() {
   const idPasajeros = prompt("ID del vuelo: ");
   const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
@@ -161,8 +162,8 @@ filtrarVuelos() {
   }
 }
   // Buscar vuelo por ID
-buscarVueloPorId(id) {
+  buscarVueloPorId(id) {
   const idNum = parseInt(id);
   return this.vuelos.find(vuelo => vuelo.id === idNum);
-}
+  }
 }
