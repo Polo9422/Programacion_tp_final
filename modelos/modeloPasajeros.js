@@ -10,7 +10,6 @@ export class modelPasajero {
     this.genero = genero;
     this.nacionalidad = nacionalidad;
     this.fecha_de_nacimiento = fecha_de_nacimiento;
-
   }
 }
 

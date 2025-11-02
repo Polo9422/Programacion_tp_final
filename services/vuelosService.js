@@ -1,7 +1,7 @@
 import fs from "fs";
 import path, { parse } from "path";
 import promptSync from "prompt-sync";
-import { ModeloVuelos } from "../modelos/modeloVuelos.js"; 
+import { ModeloAerolineas } from "./modeloAerolineas.js"; 
 
 const prompt = promptSync();
 
@@ -11,18 +11,6 @@ export class vuelosService {
     this.ruta = path.resolve("./data/vuelos.json"); 
     this.cargarVuelos();
   }
-// Leer los vuelos desde el JSON 
-cargarVuelos() { 
-  if (fs.existsSync(this.ruta)) {
-    const contenido = fs.readFileSync(this.ruta, "utf-8"); 
-    this.vuelos = JSON.parse(contenido);
-   // console.log(`${this.vuelos.length} vuelos cargados.`);
-  } else { 
-    console.log("No se encontró el archivo vuelos.json. Se inicia vacío."); 
-    this.vuelos = []; 
-  }
-}
-// CASE 1 Crear un vuelo nuevo
 registrarVuelo() {
   // Generar un ID único automáticamente
   const id = this.generarId();
@@ -98,30 +86,19 @@ registrarVuelo() {
   prompt("Presione ENTER para continuar...");
 }
 
-
-generarId() {
-  if (this.vuelos.length === 0) return 1;
-  const ids = this.vuelos.map(v => v.id);
-  return Math.max(...ids) + 1; // el siguiente al mayor existente
-}
-
-agregarPasajero(id, pasajero) {
-  const vuelo = this.buscarVueloPorId(id);
-  if (!vuelo) return console.log("Vuelo no encontrado.");
-
-  if (vuelo.asientosLibre <= 0) {
-    console.log("No hay asientos disponibles en este vuelo.");
-    return;
+  // 🔹 Leer los vuelos desde el JSON
+  cargarVuelos() {
+    if (fs.existsSync(this.ruta)) {
+      const contenido = fs.readFileSync(this.ruta, "utf-8");
+      this.vuelos = JSON.parse(contenido);
+      console.log(` ${this.vuelos.length} vuelos cargados.`);
+    } else {
+      console.log(" No se encontró el archivo vuelos.json. Se inicia vacío.");
+      this.vuelos = [];
+    }
   }
 
-  vuelo.listaDePasajeros.push(pasajero);
-  vuelo.asientosLibre--; // ↓ resta uno
-  this.guardarVuelos();
-
-  console.log(`Pasajero ${pasajero.nombre} agregado al vuelo ${vuelo.nombreVuelo}.`);
-}
-
-  // Guardar los vuelos actualizados en el JSON
+  // 🔹 Guardar los vuelos actualizados en el JSON
   guardarVuelos() {
     fs.writeFileSync(this.ruta, JSON.stringify(this.vuelos, null, 2), "utf-8");
   }
@@ -176,6 +153,7 @@ listarVuelos() {
 
   // CASE 2 Modificar un vuelo existente
 modificarVuelo() {
+  console.clear();
   const id = Number(prompt("Ingrese el ID del vuelo que desea modificar: "));
   const vuelo = this.buscarVueloPorId(id);
 
@@ -323,24 +301,30 @@ borrarVuelo() {
     console.log("Operación cancelada.");
   }
 
-  }
-  // CASE 5 Buscar vuelos por ID
-filtrarVuelos() {
-  const idPasajeros = prompt("ID del vuelo: ");
-  const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
+}
 
-  if (vueloEncontrado) {
-    console.table(vueloEncontrado); // o console.log(vueloEncontrado)
-    return vueloEncontrado;         // <-- devuelve el vuelo completo
-  } else {
-    console.log("Vuelo no encontrado.");
-    return null;
+// CASE 6 Filtrar vuelos por ID
+filtrarVuelos(){
+    const idPasajeros = prompt("ID del vuelo: ");
+    const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
+    if (vueloEncontrado) {
+        console.table(vueloEncontrado.listaDePasajeros);
+    } else {
+  console.log("Vuelo no encontrado.");
   }
 }
-  // Buscar vuelo por ID
+  // 🔹 Buscar vuelo por ID
   buscarVueloPorId(id) {
-  const idNum = parseInt(id);
-  return this.vuelos.find(vuelo => vuelo.id === idNum);
+    return this.vuelos.find(v => v.id === id);
+  }
+  // 🔹 Generar ID único
+  generarId() {
+    const ids = this.vuelos.map(v => v.id);
+    let nuevoId = 1;
+    while (ids.includes(nuevoId)) {
+      nuevoId++;
+    }
+    return nuevoId;
   }
 // Valida que solo haya letras y espacios
 validarTexto(input, campo) {
@@ -375,6 +359,4 @@ validarNumero(input, campo) {
   }
   return valor;
 }
-
-
 }

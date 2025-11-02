@@ -1,7 +1,6 @@
 import promptSync from "prompt-sync";
 import { vuelosService } from "./services/vuelosService.js";
 import {pasajerosService} from "./services/pasajerosService.js";
-//import { ModeloAerolineas } from "./modeloAerolineas.js";
 
 const servicio = new vuelosService();
 const servicioPasajero = new pasajerosService();
@@ -23,41 +22,21 @@ const menuVuelo = function (){
             break;
         case "2":
             servicio.modificarVuelo();
+            prompt("Presione ENTER para continuar...");
+            break;
+        case "2":
+            servicio.modificarVuelo();
             break;
         case "3":
             servicio.borrarVuelo();
             break;
         case "4":
             servicio.listarVuelos();
+          prompt("Presione ENTER para continuar...");
           break;
         case "5":
-        console.clear();
-        const idPasajeros = prompt("ID del vuelo: ");
-        const vueloEncontrado = servicio.buscarVueloPorId(idPasajeros);
-
-        if (!vueloEncontrado) {
-        console.log("❌ Vuelo no encontrado.");
-     } else if (!vueloEncontrado.listaDePasajeros || vueloEncontrado.listaDePasajeros.length === 0) {
-        console.log(`✈️ El vuelo ${vueloEncontrado.nombreVuelo} no tiene pasajeros registrados.`);
-    } else {
-        console.log(`✈️ Pasajeros del vuelo ${vueloEncontrado.nombreVuelo}:`);
-        console.table(vueloEncontrado.listaDePasajeros);
-    }
-
-    prompt("Presione ENTER para continuar...");
-    break;
-
-        case "6":
-            console.clear();
-            //crear la funcion de registrarPasajeroVuelo();
-            //registrarPasajeroVuelo();
-            const idVuelo = prompt("ID del vuelo: ");
-            const nombre = prompt("Nombre del pasajero: ");
-            const dni = prompt("DNI: ");
-            const pasajero = { nombre, dni };
-            servicio.agregarPasajero(idVuelo, pasajero);
-            console.log("registrarPasajeroVuelo()");
-            prompt("Presione ENTER para continuar...");
+            servicio.filtrarVuelos();
+              prompt("Presione ENTER para continuar...");
             break;
         case "0":
             console.log("elgiste volver");
