@@ -8,7 +8,7 @@ const prompt = promptSync();
 export class pasajerosService {
   constructor() {
     this.pasajeros = [];
-    this.ruta = path.resolve("./Data/pasajeros.json");
+    this.ruta = path.resolve("./data/pasajeros.json");
     }
 // Función para crear un pasajero
 
@@ -38,7 +38,6 @@ crearPasajero() {
         genero,
         nacionalidad,
         fecha_nacimiento,
-        null
         );
 
     pasajeros.push(nuevoPasajero);
@@ -59,7 +58,7 @@ crearPasajero() {
 
         }
 
-//CASE 2Función para modificar un pasajero
+//CASE 2 Función para modificar un pasajero
 
 modificarPasajero() {
     console.clear();

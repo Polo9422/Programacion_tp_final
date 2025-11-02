@@ -11,32 +11,115 @@ export class vuelosService {
     this.ruta = path.resolve("./data/vuelos.json"); 
     this.cargarVuelos();
   }
-  registrarVuelo() {
-    const id = this.vuelos.length + 1;
-    const nombreVuelo = prompt("Nombre del vuelo: ");
-    const origen = prompt("Origen: ");
-    const destino = prompt("Destino: ");
-    const fechaSalida = prompt("Fecha de salida (YYYY-MM-DD): ");
-    const duracion = Number(prompt("Duración (horas): "));
-    const asientosLibre = Number(prompt("Asientos disponibles: "));
-    const precio = Number(prompt("Precio del vuelo: "));
-    const nuevoVuelo = new ModeloVuelos(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, []);
-
-    this.crearVuelo(nuevoVuelo); // guarda también en el JSON
-    console.log("✅ Vuelo creado correctamente.");
-    prompt("Presione ENTER para continuar...");
+// Leer los vuelos desde el JSON 
+cargarVuelos() { 
+  if (fs.existsSync(this.ruta)) {
+    const contenido = fs.readFileSync(this.ruta, "utf-8"); 
+    this.vuelos = JSON.parse(contenido);
+   // console.log(`${this.vuelos.length} vuelos cargados.`);
+  } else { 
+    console.log("No se encontró el archivo vuelos.json. Se inicia vacío."); 
+    this.vuelos = []; 
   }
-  // Leer los vuelos desde el JSON
-  cargarVuelos() {
-    if (fs.existsSync(this.ruta)) {
-      const contenido = fs.readFileSync(this.ruta, "utf-8");
-      this.vuelos = JSON.parse(contenido);
-      //console.log(` ${this.vuelos.length} vuelos cargados.`);
-    } else {
-      console.log(" No se encontró el archivo vuelos.json. Se inicia vacío.");
-      this.vuelos = [];
+}
+// CASE 1 Crear un vuelo nuevo
+registrarVuelo() {
+  // Generar un ID único automáticamente
+  const id = this.generarId();
+
+  // Nombre del vuelo
+  let nombreVuelo;
+  while (true) {
+    const input = prompt("Nombre del vuelo: ").trim();
+    if (this.validarTexto(input, "Nombre del vuelo")) {
+      nombreVuelo = input;
+      break;
     }
   }
+
+  // Origen
+  let origen;
+  while (true) {
+    const input = prompt("Origen: ").trim();
+    if (this.validarTexto(input, "Origen")) {
+      origen = input;
+      break;
+    }
+  }
+
+  // Destino
+  let destino;
+  while (true) {
+    const input = prompt("Destino: ").trim();
+    if (this.validarTexto(input, "Destino")) {
+      destino = input;
+      break;
+    }
+  }
+
+  // Fecha de salida
+  let fechaSalida;
+  while (true) {
+    const input = prompt("Fecha de salida (YYYY-MM-DD): ").trim();
+    if (this.validarFecha(input, "Fecha de salida")) {
+      fechaSalida = input;
+      break;
+    }
+  }
+
+  // Asientos disponibles por defecto
+  const asientosLibre = 300;
+
+  // Precio
+  let precio;
+  while (true) {
+    const input = prompt("Precio del vuelo: ").trim();
+    const valor = this.validarNumero(input, "Precio");
+    if (valor !== null) {
+      precio = valor;
+      break;
+    }
+  }
+
+  // Crear el vuelo con lista de pasajeros vacía
+  const nuevoVuelo = new ModeloVuelos(
+    id,
+    nombreVuelo,
+    origen,
+    destino,
+    fechaSalida,
+    asientosLibre,
+    precio,
+    [] // lista de pasajeros vacía al inicio
+  );
+
+  this.crearVuelo(nuevoVuelo);
+  console.log("✅ Vuelo creado correctamente.");
+  prompt("Presione ENTER para continuar...");
+}
+
+
+generarId() {
+  if (this.vuelos.length === 0) return 1;
+  const ids = this.vuelos.map(v => v.id);
+  return Math.max(...ids) + 1; // el siguiente al mayor existente
+}
+
+agregarPasajero(id, pasajero) {
+  const vuelo = this.buscarVueloPorId(id);
+  if (!vuelo) return console.log("Vuelo no encontrado.");
+
+  if (vuelo.asientosLibre <= 0) {
+    console.log("No hay asientos disponibles en este vuelo.");
+    return;
+  }
+
+  vuelo.listaDePasajeros.push(pasajero);
+  vuelo.asientosLibre--; // ↓ resta uno
+  this.guardarVuelos();
+
+  console.log(`Pasajero ${pasajero.nombre} agregado al vuelo ${vuelo.nombreVuelo}.`);
+}
 
   // Guardar los vuelos actualizados en el JSON
   guardarVuelos() {
@@ -93,7 +176,6 @@ listarVuelos() {
 
   // CASE 2 Modificar un vuelo existente
 modificarVuelo() {
-
   const id = Number(prompt("Ingrese el ID del vuelo que desea modificar: "));
   const vuelo = this.buscarVueloPorId(id);
 
@@ -105,24 +187,118 @@ modificarVuelo() {
   console.log(`✈️ Modificando vuelo: ${vuelo.nombreVuelo}`);
   console.log("Deje vacío un campo si no desea cambiarlo.");
 
-  const nuevoNombre = prompt(`Nuevo nombre (${vuelo.nombreVuelo}): `) || vuelo.nombreVuelo;
-  const nuevoOrigen = prompt(`Nuevo origen (${vuelo.origen}): `) || vuelo.origen;
-  const nuevoDestino = prompt(`Nuevo destino (${vuelo.destino}): `) || vuelo.destino;
-  const nuevaFecha = prompt(`Nueva fecha (${vuelo.fechaSalida}): `) || vuelo.fechaSalida;
-  const nuevaDuracion = prompt(`Nueva duración (${vuelo.duracion}): `) || vuelo.duracion;
-  const nuevosAsientos = prompt(`Nuevos asientos disponibles (${vuelo.asientosLibre}): `) || vuelo.asientosLibre;
-  const nuevoPrecio = prompt(`Nuevo precio (${vuelo.precio}): `) || vuelo.precio;
+  // Nombre
+  let nuevoNombre;
+  while (true) {
+    const input = prompt(`Nuevo nombre (${vuelo.nombreVuelo}): `).trim();
+    if (input === "") {
+      nuevoNombre = vuelo.nombreVuelo;
+      break;
+    } else if (this.validarTexto(input, "Nombre del vuelo")) {
+      nuevoNombre = input;
+      break;
+    }
+  }
 
+  // Origen
+  let nuevoOrigen;
+  while (true) {
+    const input = prompt(`Nuevo origen (${vuelo.origen}): `).trim();
+    if (input === "") {
+      nuevoOrigen = vuelo.origen;
+      break;
+    } else if (this.validarTexto(input, "Origen")) {
+      nuevoOrigen = input;
+      break;
+    }
+  }
+
+  // Destino
+  let nuevoDestino;
+  while (true) {
+    const input = prompt(`Nuevo destino (${vuelo.destino}): `).trim();
+    if (input === "") {
+      nuevoDestino = vuelo.destino;
+      break;
+    } else if (this.validarTexto(input, "Destino")) {
+      nuevoDestino = input;
+      break;
+    }
+  }
+
+  // Fecha
+  let nuevaFecha;
+  while (true) {
+    const input = prompt(`Nueva fecha (${vuelo.fechaSalida}): `).trim();
+    if (input === "") {
+      nuevaFecha = vuelo.fechaSalida;
+      break;
+    } else if (this.validarFecha(input, "Fecha de salida")) {
+      nuevaFecha = input;
+      break;
+    }
+  }
+
+  // Duración
+  let nuevaDuracion;
+  while (true) {
+    const input = prompt(`Nueva duración (${vuelo.duracion}): `).trim();
+    if (input === "") {
+      nuevaDuracion = vuelo.duracion;
+      break;
+    } else {
+      const valor = this.validarNumero(input, "Duración");
+      if (valor !== null) {
+        nuevaDuracion = valor;
+        break;
+      }
+    }
+      prompt("Presione ENTER para continuar...");
+  }
+
+  // Asientos disponibles
+  let nuevosAsientos;
+  while (true) {
+    const input = prompt(`Nuevos asientos disponibles (${vuelo.asientosLibre}): `).trim();
+    if (input === "") {
+      nuevosAsientos = vuelo.asientosLibre;
+      break;
+    } else {
+      const valor = this.validarNumero(input, "Asientos disponibles");
+      if (valor !== null) {
+        nuevosAsientos = valor;
+        break;
+      }
+    }
+  }
+
+  // Precio
+  let nuevoPrecio;
+  while (true) {
+    const input = prompt(`Nuevo precio (${vuelo.precio}): `).trim();
+    if (input === "") {
+      nuevoPrecio = vuelo.precio;
+      break;
+    } else {
+      const valor = this.validarNumero(input, "Precio");
+      if (valor !== null) {
+        nuevoPrecio = valor;
+        break;
+      }
+    }
+  }
+
+  // Guardar cambios
   vuelo.nombreVuelo = nuevoNombre;
   vuelo.origen = nuevoOrigen;
   vuelo.destino = nuevoDestino;
   vuelo.fechaSalida = nuevaFecha;
-  vuelo.duracion = Number(nuevaDuracion);
-  vuelo.asientosLibre = Number(nuevosAsientos);
-  vuelo.precio = Number(nuevoPrecio);
+  vuelo.duracion = nuevaDuracion;
+  vuelo.asientosLibre = nuevosAsientos;
+  vuelo.precio = nuevoPrecio;
 
   this.guardarVuelos();
-  console.log("Vuelo modificado correctamente.");
+  console.log("✅ Vuelo modificado correctamente.");
 }
 
 // CASE 3 Borrar un vuelo existente
@@ -166,4 +342,39 @@ filtrarVuelos() {
   const idNum = parseInt(id);
   return this.vuelos.find(vuelo => vuelo.id === idNum);
   }
+// Valida que solo haya letras y espacios
+validarTexto(input, campo) {
+  const regex = /^[A-Za-z\s]+$/;
+  if (!regex.test(input) || input.trim() === "") {
+    console.log(`❌ "${campo}" debe contener solo letras y no estar vacío.`);
+    return false;
+  }
+  return true;
+}
+
+// Valida fecha en formato YYYY-MM-DD y que no haya pasado
+validarFecha(input, campo) {
+  const fecha = new Date(input);
+  const hoy = new Date();
+  if (isNaN(fecha.getTime())) {
+    console.log(`❌ "${campo}" inválida. Use formato YYYY-MM-DD.`);
+    return false;
+  } else if (fecha < hoy) {
+    console.log(`❌ "${campo}" no puede ser anterior a hoy.`);
+    return false;
+  }
+  return true;
+}
+
+// Valida que sea un número positivo
+validarNumero(input, campo) {
+  const valor = Number(input);
+  if (isNaN(valor) || valor <= 0) {
+    console.log(`❌ "${campo}" debe ser un número mayor a 0.`);
+    return null;
+  }
+  return valor;
+}
+
+
 }
