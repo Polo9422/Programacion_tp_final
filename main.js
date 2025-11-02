@@ -20,6 +20,7 @@ const menuVuelo = function (){
         case "1":
         console.clear();
             servicio.registrarVuelo();
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "2":
@@ -39,8 +40,8 @@ const menuVuelo = function (){
           break;
         case "5":
         console.clear();
-        const idPasajeros = prompt("ID del vuelo: ");
-        const vueloEncontrado = servicio.buscarVueloPorId(idPasajeros);
+        const idVuelo = prompt("ID del vuelo: ");
+        const vueloEncontrado = servicio.buscarVueloPorId(idVuelo);
 
         if (!vueloEncontrado) {
         console.log("❌ Vuelo no encontrado.");
@@ -54,18 +55,6 @@ const menuVuelo = function (){
     prompt("Presione ENTER para continuar...");
     break;
 
-        case "6":
-            console.clear();
-            //crear la funcion de registrarPasajeroVuelo();
-            //registrarPasajeroVuelo();
-            const idVuelo = prompt("ID del vuelo: ");
-            const nombre = prompt("Nombre del pasajero: ");
-            const dni = prompt("DNI: ");
-            const pasajero = { nombre, dni };
-            servicio.agregarPasajero(idVuelo, pasajero);
-            console.log("registrarPasajeroVuelo()");
-            prompt("Presione ENTER para continuar...");
-            break;
         case "0":
             console.clear();
             console.log("elgiste volver");
@@ -98,31 +87,37 @@ const menuPasajero = function () {
         case "1":
             console.clear();
             servicioPasajero.crearPasajero();
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "2":
             console.clear();
             servicioPasajero.modificarPasajero(); 
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "3":
             console.clear();
             servicioPasajero.borrarPasajero();
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "4":
             console.clear();
             servicioPasajero.listarPasajero(); 
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "5":
             console.clear();
             servicioPasajero.filtrarPasajero(); 
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "6":
             console.clear();
             servicioPasajero.registrarPasajeroVuelo(); 
+            prompt("Presione ENTER para continuar...");
             break;
 
         case "0":

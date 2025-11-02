@@ -174,10 +174,10 @@ registrarPasajeroVuelo() {
         return prompt("Presione ENTER para continuar...");
     }
 
-// Por ahora es un placeholder
+    // Por ahora es un placeholder
     console.log(`✈️ Registrando pasajero ${pasajero.nombre} ${pasajero.apellido} a un vuelo...`);
     console.log("(Integración con módulo de vuelos pendiente)");
 
     prompt("Presione ENTER para continuar...");
-}
+    }
 }

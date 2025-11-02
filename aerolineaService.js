@@ -107,7 +107,6 @@ modificarVuelo() {
 
   if (!vuelo) {
     console.log("❌ Vuelo no encontrado.");
-    prompt("Presione ENTER para continuar...");
     return;
   }
 
@@ -142,7 +141,6 @@ borrarVuelo() {
 
   if (!vuelo) {
     console.log("Vuelo NO encontrado.");
-    prompt("Presione ENTER para continuar...");
     return;
   }
 
