@@ -786,14 +786,25 @@
     "listaDePasajeros": []
   },
   {
-    "id": 73,
-    "nombreVuelo": "juan",
-    "origen": "asfsdfasd",
-    "destino": "adsfadsfa",
-    "fechaSalida": "adsfadf",
-    "duracion": null,
-    "asientosLibre": null,
-    "precio": null,
+    "id": 72,
+    "nombreVuelo": "yo",
+    "origen": "otro",
+    "destino": "al otro lado",
+    "fechaSalida": "2025-2",
+    "duracion": 5,
+    "asientosLibre": 4,
+    "precio": 45,
+    "listaDePasajeros": []
+  },
+  {
+    "id": 74,
+    "nombreVuelo": "yopo",
+    "origen": "tongo",
+    "destino": "gfggg",
+    "fechaSalida": "11",
+    "duracion": 33,
+    "asientosLibre": 44,
+    "precio": [],
     "listaDePasajeros": []
   }
 ]

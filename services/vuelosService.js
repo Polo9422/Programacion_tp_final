@@ -17,14 +17,13 @@ export class vuelosService {
     const origen = prompt("Origen: ");
     const destino = prompt("Destino: ");
     const fechaSalida = prompt("Fecha de salida (YYYY-MM-DD): ");
-    const duracion = Number(prompt("Duración (horas): "));
     const asientosLibre = Number(prompt("Asientos disponibles: "));
     const precio = Number(prompt("Precio del vuelo: "));
-    const newvuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, duracion, asientosLibre, precio, []);
+    const newvuelo = new ModeloAerolineas(id, nombreVuelo, origen, destino, fechaSalida, asientosLibre, precio, []);
 
     this.crearVuelo(newvuelo); // guarda también en el JSON
     console.log("✅ Vuelo creado correctamente.");
-    prompt("Presione ENTER para continuar...");
+    
   }
   // Leer los vuelos desde el JSON
   cargarVuelos() {
@@ -110,7 +109,6 @@ modificarVuelo() {
   const nuevoOrigen = prompt(`Nuevo origen (${vuelo.origen}): `) || vuelo.origen;
   const nuevoDestino = prompt(`Nuevo destino (${vuelo.destino}): `) || vuelo.destino;
   const nuevaFecha = prompt(`Nueva fecha (${vuelo.fechaSalida}): `) || vuelo.fechaSalida;
-  const nuevaDuracion = prompt(`Nueva duración (${vuelo.duracion}): `) || vuelo.duracion;
   const nuevosAsientos = prompt(`Nuevos asientos disponibles (${vuelo.asientosLibre}): `) || vuelo.asientosLibre;
   const nuevoPrecio = prompt(`Nuevo precio (${vuelo.precio}): `) || vuelo.precio;
 
@@ -118,7 +116,6 @@ modificarVuelo() {
   vuelo.origen = nuevoOrigen;
   vuelo.destino = nuevoDestino;
   vuelo.fechaSalida = nuevaFecha;
-  vuelo.duracion = Number(nuevaDuracion);
   vuelo.asientosLibre = Number(nuevosAsientos);
   vuelo.precio = Number(nuevoPrecio);
 
@@ -158,7 +155,21 @@ filtrarVuelos() {
   const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
 
   if (vueloEncontrado) {
-    console.table(vueloEncontrado); // o console.log(vueloEncontrado)
+ //   console.table(vueloEncontrado); // o console.log(vueloEncontrado)
+  console.log(`ID: ${vueloEncontrado.id} | ${vueloEncontrado.nombreVuelo} | ${vueloEncontrado.origen} -> ${vueloEncontrado.destino}`);
+            // Esto imprime la información complementaria del vuelo: Fecha de salida, duración, asientos libres y precio.
+            console.log(`Fecha: ${vueloEncontrado.fechaSalida} | Asientos: ${vueloEncontrado.asientosLibre} | Precio: $${vueloEncontrado.precio}`);
+            // si la lista de pasajeros está vacía o no existe, muestra "Ninguno". Si hay pasajeros, los lista uno por uno
+            if (!vueloEncontrado.listaDePasajeros || vueloEncontrado.listaDePasajeros.length === 0) {
+                console.log("Pasajeros: Ninguno\n");
+              
+            } else {
+              // Si hay pasajeros, los lista uno por uno
+                vueloEncontrado.listaDePasajeros.forEach((p, i) => {
+                    console.log(`  ${i + 1}. ${p.nombre || "Sin nombre"} ${p.apellido || "Sin apellido"} | DNI: ${p.dni || "Sin DNI"}`);
+                });
+                console.log(""); // línea en blanco entre vuelos
+            }
     return vueloEncontrado;         // <-- devuelve el vuelo completo
   } else {
     console.log("Vuelo no encontrado.");
