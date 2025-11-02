@@ -786,17 +786,6 @@
     "listaDePasajeros": []
   },
   {
-    "id": 72,
-    "nombreVuelo": "juan \r}",
-    "origen": "buenos aires",
-    "destino": "jonkon",
-    "fechaSalida": "2025-03-27",
-    "duracion": 23,
-    "asientosLibre": 50,
-    "precio": 900,
-    "listaDePasajeros": []
-  },
-  {
     "id": 73,
     "nombreVuelo": "juan",
     "origen": "asfsdfasd",
@@ -805,17 +794,6 @@
     "duracion": null,
     "asientosLibre": null,
     "precio": null,
-    "listaDePasajeros": []
-  },
-  {
-    "id": 74,
-    "nombreVuelo": "Christian",
-    "origen": "Brasil",
-    "destino": "Argentina",
-    "fechaSalida": "2025-12-01",
-    "duracion": 12,
-    "asientosLibre": 2,
-    "precio": 12,
     "listaDePasajeros": []
   }
 ]

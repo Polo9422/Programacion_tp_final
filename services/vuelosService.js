@@ -1,7 +1,7 @@
 import fs from "fs";
 import path, { parse } from "path";
 import promptSync from "prompt-sync";
-import { ModeloAerolineas } from "./modeloAerolineas.js"; 
+import { ModeloAerolineas } from "../modelos/modeloVuelos.js"; 
 
 const prompt = promptSync();
 
@@ -80,12 +80,6 @@ listarVuelos() {
     console.log(`✈️ Vuelo ${vuelo.nombreVuelo} agregado con éxito.`);
   }
 
-  // 🔹 Buscar vuelo por ID
-buscarVueloPorId(id) {
-  const idNum = parseInt(id);
-  return this.vuelos.find(vuelo => vuelo.id === idNum);
-}
-
 
   // 🔹 Agregar pasajero y guardar cambios
   agregarPasajero(id, pasajero) {
@@ -157,14 +151,24 @@ borrarVuelo() {
 
 }
 
-// CASE 6 Filtrar vuelos por ID
-filtrarVuelos(){
-    const idPasajeros = prompt("ID del vuelo: ");
-    const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
-    if (vueloEncontrado) {
-        console.table(vueloEncontrado.listaDePasajeros);
-    } else {
-  console.log("Vuelo no encontrado.");
+// CASE 5 Filtrar vuelos por ID
+filtrarVuelos() {
+  const idPasajeros = prompt("ID del vuelo: ");
+  const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
+
+  if (vueloEncontrado) {
+    console.table(vueloEncontrado); // o console.log(vueloEncontrado)
+    return vueloEncontrado;         // <-- devuelve el vuelo completo
+  } else {
+    console.log("Vuelo no encontrado.");
+    return null;
   }
 }
+
+  // Buscar vuelo por ID
+buscarVueloPorId(id) {
+  const idNum = parseInt(id);
+  return this.vuelos.find(vuelo => vuelo.id === idNum);
+}
+
 }

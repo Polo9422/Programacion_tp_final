@@ -1,5 +1,5 @@
 import promptSync from "prompt-sync";
-import { modelPasajero, Pasaporte,} from "./modeloPasajeros.js";
+import { modelPasajero, Pasaporte,} from "../modelos/modeloPasajeros.js";
 import { pasajeros, pasaportes } from "./Data/Pasajeros.js";
 const prompt = promptSync();
 
