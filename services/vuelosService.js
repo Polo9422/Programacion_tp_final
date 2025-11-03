@@ -84,7 +84,6 @@ registrarVuelo() {
 
   this.crearVuelo(nuevoVuelo);
   console.log("✅ Vuelo creado correctamente.");
-  prompt("Presione ENTER para continuar...");
 }
 
   // 🔹 Leer los vuelos desde el JSON
@@ -282,7 +281,6 @@ modificarVuelo() {
 
 // CASE 3 Borrar un vuelo existente
 borrarVuelo() {
-  console.clear();
   const id = Number(prompt("Ingrese el ID del vuelo que desea borrar: "));
   const vuelo = this.buscarVueloPorId(id);
 
@@ -304,19 +302,42 @@ borrarVuelo() {
 
 }
 
-// CASE 6 Filtrar vuelos por ID
-filtrarVuelos(){
-    const idPasajeros = prompt("ID del vuelo: ");
-    const vueloEncontrado = this.buscarVueloPorId(idPasajeros);
-    if (vueloEncontrado) {
-        console.table(vueloEncontrado.listaDePasajeros);
-    } else {
-  console.log("Vuelo no encontrado.");
+// CASE 5 Filtrar vuelos por ID
+filtrarVuelos() {
+  const idVuelo = prompt("ID del vuelo: ");
+  const vueloEncontrado = this.buscarVueloPorId(idVuelo);
+
+  if (!vueloEncontrado) {
+    console.log("❌ Vuelo no encontrado.");
+    return null;
   }
+
+  // Mostrar datos del vuelo
+  console.log("=== Vuelo encontrado ===");
+  console.log(`ID: ${vueloEncontrado.id}`);
+  console.log(`Nombre: ${vueloEncontrado.nombreVuelo}`);
+  console.log(`Origen: ${vueloEncontrado.origen}`);
+  console.log(`Destino: ${vueloEncontrado.destino}`);
+  console.log(`Fecha de salida: ${vueloEncontrado.fechaSalida}`);
+  console.log(`Duración: ${vueloEncontrado.duracion} h`);
+  console.log(`Asientos libres: ${vueloEncontrado.asientosLibre}`);
+  console.log(`Precio: $${vueloEncontrado.precio}`);
+
+  // Mostrar pasajeros solo si existen
+  if (vueloEncontrado.listaDePasajeros.length > 0) {
+    console.log("Lista de pasajeros:");
+    console.table(vueloEncontrado.listaDePasajeros);
+  } else {
+    console.log("Pasajeros: Ninguno");
+  }
+
+  return vueloEncontrado;
 }
+
+
   // 🔹 Buscar vuelo por ID
   buscarVueloPorId(id) {
-    return this.vuelos.find(v => v.id === id);
+    return this.vuelos.find(v => v.id == id);
   }
   // 🔹 Generar ID único
   generarId() {

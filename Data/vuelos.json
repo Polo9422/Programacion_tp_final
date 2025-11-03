@@ -835,5 +835,15 @@
     "asientosLibre": 500,
     "precio": [],
     "listaDePasajeros": []
+  },
+  {
+    "id": 1,
+    "nombreVuelo": "fgfg",
+    "origen": "gsdfg",
+    "destino": "fsfg",
+    "fechaSalida": "2025-11-30",
+    "asientosLibre": 500,
+    "precio": [],
+    "listaDePasajeros": []
   }
 ]
