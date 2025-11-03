@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "nombreVuelo": "IB4430",
     "origen": "Asunción",
     "destino": "Londres",
@@ -11,7 +11,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "2",
+    "id": 2,
     "nombreVuelo": "LA5956",
     "origen": "Mendoza",
     "destino": "Buenos Aires",
@@ -22,7 +22,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "3",
+    "id": 3,
     "nombreVuelo": "AI6460",
     "origen": "Asunción",
     "destino": "Miami",
@@ -33,7 +33,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "4",
+    "id": 4,
     "nombreVuelo": "AI3739",
     "origen": "Córdoba",
     "destino": "Roma",
@@ -44,7 +44,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "5",
+    "id": 5,
     "nombreVuelo": "IB9348",
     "origen": "Asunción",
     "destino": "Roma",
@@ -55,7 +55,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "6",
+    "id": 6,
     "nombreVuelo": "EM4835",
     "origen": "Buenos Aires",
     "destino": "Madrid",
@@ -66,7 +66,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "7",
+    "id": 7,
     "nombreVuelo": "AI9073",
     "origen": "Buenos Aires",
     "destino": "Tokio",
@@ -77,7 +77,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "8",
+    "id": 8,
     "nombreVuelo": "EM4988",
     "origen": "Rosario",
     "destino": "Londres",
@@ -88,7 +88,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "9",
+    "id": 9,
     "nombreVuelo": "EM4458",
     "origen": "Mendoza",
     "destino": "Londres",
@@ -99,7 +99,7 @@
     "listaDePasajeros": []
   },
   {
-    "id": "10",
+    "id": 10,
     "nombreVuelo": "LA3007",
     "origen": "Mendoza",
     "destino": "Roma",
@@ -108,742 +108,6 @@
     "asientosLibre": 29,
     "precio": 820.09,
     "listaDePasajeros": []
-  },
-  {
-    "id": "11",
-    "nombreVuelo": "AE4251",
-    "origen": "Mendoza",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-22",
-    "duracion": 10,
-    "asientosLibre": 91,
-    "precio": 921.83,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "12",
-    "nombreVuelo": "AE5145",
-    "origen": "Asunción",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-22",
-    "duracion": 5,
-    "asientosLibre": 163,
-    "precio": 989.2,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "13",
-    "nombreVuelo": "LA2434",
-    "origen": "Montevideo",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-22",
-    "duracion": 4,
-    "asientosLibre": 50,
-    "precio": 483.17,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "14",
-    "nombreVuelo": "IB9296",
-    "origen": "Buenos Aires",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-22",
-    "duracion": 4,
-    "asientosLibre": 150,
-    "precio": 526.96,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "15",
-    "nombreVuelo": "AI4146",
-    "origen": "Montevideo",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-22",
-    "duracion": 7,
-    "asientosLibre": 178,
-    "precio": 736.71,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "16",
-    "nombreVuelo": "LA9180",
-    "origen": "Asunción",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-22",
-    "duracion": 8,
-    "asientosLibre": 95,
-    "precio": 997.58,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "17",
-    "nombreVuelo": "AI5942",
-    "origen": "Córdoba",
-    "destino": "París",
-    "fechaSalida": "2025-10-22",
-    "duracion": 4,
-    "asientosLibre": 101,
-    "precio": 243.02,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "18",
-    "nombreVuelo": "EM6651",
-    "origen": "Córdoba",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-22",
-    "duracion": 6,
-    "asientosLibre": 71,
-    "precio": 715.87,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "19",
-    "nombreVuelo": "AE9657",
-    "origen": "Rosario",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-22",
-    "duracion": 3,
-    "asientosLibre": 34,
-    "precio": 1114.01,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "20",
-    "nombreVuelo": "AE5208",
-    "origen": "Rosario",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-22",
-    "duracion": 10,
-    "asientosLibre": 134,
-    "precio": 658.07,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "21",
-    "nombreVuelo": "AE1216",
-    "origen": "Asunción",
-    "destino": "Buenos Aires",
-    "fechaSalida": "2025-10-23",
-    "duracion": 4,
-    "asientosLibre": 87,
-    "precio": 867.99,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "22",
-    "nombreVuelo": "EM2768",
-    "origen": "Córdoba",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-23",
-    "duracion": 8,
-    "asientosLibre": 34,
-    "precio": 1058.9,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "23",
-    "nombreVuelo": "AM3646",
-    "origen": "Asunción",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-23",
-    "duracion": 12,
-    "asientosLibre": 17,
-    "precio": 499.41,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "24",
-    "nombreVuelo": "EM3715",
-    "origen": "Montevideo",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-23",
-    "duracion": 6,
-    "asientosLibre": 129,
-    "precio": 913.75,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "25",
-    "nombreVuelo": "IB7829",
-    "origen": "Buenos Aires",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-23",
-    "duracion": 12,
-    "asientosLibre": 125,
-    "precio": 532.29,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "26",
-    "nombreVuelo": "IB9700",
-    "origen": "Buenos Aires",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-23",
-    "duracion": 5,
-    "asientosLibre": 123,
-    "precio": 757.41,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "27",
-    "nombreVuelo": "AI5475",
-    "origen": "Mendoza",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-23",
-    "duracion": 8,
-    "asientosLibre": 115,
-    "precio": 354.72,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "28",
-    "nombreVuelo": "IB3633",
-    "origen": "Montevideo",
-    "destino": "Buenos Aires",
-    "fechaSalida": "2025-10-23",
-    "duracion": 5,
-    "asientosLibre": 82,
-    "precio": 845,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "29",
-    "nombreVuelo": "AE3918",
-    "origen": "Rosario",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-23",
-    "duracion": 12,
-    "asientosLibre": 138,
-    "precio": 988.35,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "30",
-    "nombreVuelo": "EM7246",
-    "origen": "Mendoza",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-23",
-    "duracion": 10,
-    "asientosLibre": 61,
-    "precio": 990.85,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "31",
-    "nombreVuelo": "AM6204",
-    "origen": "Rosario",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-24",
-    "duracion": 7,
-    "asientosLibre": 22,
-    "precio": 694.62,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "32",
-    "nombreVuelo": "AM6915",
-    "origen": "Buenos Aires",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-24",
-    "duracion": 7,
-    "asientosLibre": 167,
-    "precio": 1011.22,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "33",
-    "nombreVuelo": "LA7922",
-    "origen": "Córdoba",
-    "destino": "París",
-    "fechaSalida": "2025-10-24",
-    "duracion": 10,
-    "asientosLibre": 174,
-    "precio": 1121.66,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "34",
-    "nombreVuelo": "IB5309",
-    "origen": "Córdoba",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-24",
-    "duracion": 10,
-    "asientosLibre": 180,
-    "precio": 1008.83,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "35",
-    "nombreVuelo": "AI8336",
-    "origen": "Mendoza",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-24",
-    "duracion": 5,
-    "asientosLibre": 125,
-    "precio": 1050.08,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "36",
-    "nombreVuelo": "LA4061",
-    "origen": "Córdoba",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-24",
-    "duracion": 2,
-    "asientosLibre": 63,
-    "precio": 503.22,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "37",
-    "nombreVuelo": "IB2102",
-    "origen": "Mendoza",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-24",
-    "duracion": 6,
-    "asientosLibre": 121,
-    "precio": 708.71,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "38",
-    "nombreVuelo": "AM7426",
-    "origen": "Mendoza",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-24",
-    "duracion": 8,
-    "asientosLibre": 63,
-    "precio": 371.51,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "39",
-    "nombreVuelo": "IB7332",
-    "origen": "Mendoza",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-24",
-    "duracion": 9,
-    "asientosLibre": 48,
-    "precio": 286.67,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "40",
-    "nombreVuelo": "LA7084",
-    "origen": "Mendoza",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-24",
-    "duracion": 3,
-    "asientosLibre": 96,
-    "precio": 879.12,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "41",
-    "nombreVuelo": "EM7620",
-    "origen": "Buenos Aires",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-25",
-    "duracion": 2,
-    "asientosLibre": 16,
-    "precio": 779.72,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "42",
-    "nombreVuelo": "IB3401",
-    "origen": "Córdoba",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-25",
-    "duracion": 7,
-    "asientosLibre": 76,
-    "precio": 289.77,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "43",
-    "nombreVuelo": "AM6065",
-    "origen": "Montevideo",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-25",
-    "duracion": 2,
-    "asientosLibre": 21,
-    "precio": 263.8,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "44",
-    "nombreVuelo": "IB2244",
-    "origen": "Asunción",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-25",
-    "duracion": 4,
-    "asientosLibre": 19,
-    "precio": 528.18,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "45",
-    "nombreVuelo": "IB3492",
-    "origen": "Asunción",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-25",
-    "duracion": 6,
-    "asientosLibre": 36,
-    "precio": 772.04,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "46",
-    "nombreVuelo": "AE7381",
-    "origen": "Rosario",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-25",
-    "duracion": 2,
-    "asientosLibre": 24,
-    "precio": 561.17,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "47",
-    "nombreVuelo": "EM5551",
-    "origen": "Córdoba",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-25",
-    "duracion": 4,
-    "asientosLibre": 77,
-    "precio": 912.89,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "48",
-    "nombreVuelo": "AE2937",
-    "origen": "Rosario",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-25",
-    "duracion": 11,
-    "asientosLibre": 82,
-    "precio": 532.55,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "49",
-    "nombreVuelo": "EM8393",
-    "origen": "Mendoza",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-25",
-    "duracion": 9,
-    "asientosLibre": 81,
-    "precio": 1105.43,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "50",
-    "nombreVuelo": "AE3940",
-    "origen": "Mendoza",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-25",
-    "duracion": 9,
-    "asientosLibre": 83,
-    "precio": 1171.92,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "51",
-    "nombreVuelo": "AI4361",
-    "origen": "Rosario",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-26",
-    "duracion": 12,
-    "asientosLibre": 179,
-    "precio": 1075.45,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "52",
-    "nombreVuelo": "LA3088",
-    "origen": "Córdoba",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-26",
-    "duracion": 4,
-    "asientosLibre": 152,
-    "precio": 327.61,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "53",
-    "nombreVuelo": "AE9070",
-    "origen": "Buenos Aires",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-26",
-    "duracion": 6,
-    "asientosLibre": 116,
-    "precio": 811.27,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "54",
-    "nombreVuelo": "AM4919",
-    "origen": "Asunción",
-    "destino": "Buenos Aires",
-    "fechaSalida": "2025-10-26",
-    "duracion": 3,
-    "asientosLibre": 116,
-    "precio": 332.44,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "55",
-    "nombreVuelo": "LA4191",
-    "origen": "Rosario",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-26",
-    "duracion": 6,
-    "asientosLibre": 11,
-    "precio": 827.84,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "56",
-    "nombreVuelo": "AM2837",
-    "origen": "Mendoza",
-    "destino": "Londres",
-    "fechaSalida": "2025-10-26",
-    "duracion": 3,
-    "asientosLibre": 179,
-    "precio": 514.47,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "57",
-    "nombreVuelo": "AE1517",
-    "origen": "Asunción",
-    "destino": "Buenos Aires",
-    "fechaSalida": "2025-10-26",
-    "duracion": 9,
-    "asientosLibre": 162,
-    "precio": 778.55,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "58",
-    "nombreVuelo": "EM9604",
-    "origen": "Asunción",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-26",
-    "duracion": 7,
-    "asientosLibre": 178,
-    "precio": 647.03,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "59",
-    "nombreVuelo": "AM1013",
-    "origen": "Córdoba",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-26",
-    "duracion": 8,
-    "asientosLibre": 62,
-    "precio": 534.6,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "60",
-    "nombreVuelo": "AI4047",
-    "origen": "Rosario",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-26",
-    "duracion": 6,
-    "asientosLibre": 104,
-    "precio": 818.35,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "61",
-    "nombreVuelo": "LA8703",
-    "origen": "Rosario",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-27",
-    "duracion": 2,
-    "asientosLibre": 128,
-    "precio": 613.09,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "62",
-    "nombreVuelo": "EM9839",
-    "origen": "Buenos Aires",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-27",
-    "duracion": 11,
-    "asientosLibre": 115,
-    "precio": 691.99,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "63",
-    "nombreVuelo": "LA9650",
-    "origen": "Rosario",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-27",
-    "duracion": 2,
-    "asientosLibre": 45,
-    "precio": 611.23,
-    "listaDePasajeros": [
-      {
-        "nombre": "juan ",
-        "dni": "37940350"
-      }
-    ]
-  },
-  {
-    "id": "64",
-    "nombreVuelo": "EM8710",
-    "origen": "Mendoza",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-27",
-    "duracion": 6,
-    "asientosLibre": 148,
-    "precio": 591.04,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "65",
-    "nombreVuelo": "EM3166",
-    "origen": "Rosario",
-    "destino": "Santiago de Chile",
-    "fechaSalida": "2025-10-27",
-    "duracion": 6,
-    "asientosLibre": 21,
-    "precio": 302.72,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "66",
-    "nombreVuelo": "EM5844",
-    "origen": "Asunción",
-    "destino": "Buenos Aires",
-    "fechaSalida": "2025-10-27",
-    "duracion": 7,
-    "asientosLibre": 118,
-    "precio": 801.75,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "67",
-    "nombreVuelo": "AI7781",
-    "origen": "Rosario",
-    "destino": "Madrid",
-    "fechaSalida": "2025-10-27",
-    "duracion": 2,
-    "asientosLibre": 123,
-    "precio": 1194.4,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "68",
-    "nombreVuelo": "AE5504",
-    "origen": "Mendoza",
-    "destino": "Tokio",
-    "fechaSalida": "2025-10-27",
-    "duracion": 11,
-    "asientosLibre": 101,
-    "precio": 276.25,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "69",
-    "nombreVuelo": "LA4726",
-    "origen": "Montevideo",
-    "destino": "Miami",
-    "fechaSalida": "2025-10-27",
-    "duracion": 10,
-    "asientosLibre": 116,
-    "precio": 728.28,
-    "listaDePasajeros": []
-  },
-  {
-    "id": "70",
-    "nombreVuelo": "IB9625",
-    "origen": "Buenos Aires",
-    "destino": "Roma",
-    "fechaSalida": "2025-10-27",
-    "duracion": 9,
-    "asientosLibre": 180,
-    "precio": 870.3,
-    "listaDePasajeros": []
-  },
-  {
-    "id": 71,
-    "nombreVuelo": "fghfgh",
-    "origen": "dfgfd",
-    "destino": "fgfg",
-    "fechaSalida": "2025-02-22",
-    "duracion": 6,
-    "asientosLibre": 600,
-    "precio": 600,
-    "listaDePasajeros": []
-  },
-  {
-    "id": 73,
-    "nombreVuelo": "juan",
-    "origen": "asfsdfasd",
-    "destino": "adsfadsfa",
-    "fechaSalida": "adsfadf",
-    "duracion": null,
-    "asientosLibre": null,
-    "precio": null,
-    "listaDePasajeros": []
-  },
-  {
-    "id": 74,
-    "nombreVuelo": "5464",
-    "origen": "5464",
-    "destino": "5161",
-    "fechaSalida": "64161",
-    "asientosLibre": 61161,
-    "precio": [],
-    "listaDePasajeros": []
-  },
-  {
-    "id": 75,
-    "nombreVuelo": "1",
-    "origen": "232",
-    "destino": "3313",
-    "fechaSalida": "13131",
-    "asientosLibre": 6166,
-    "precio": [],
-    "listaDePasajeros": []
-  },
-  {
-    "id": 76,
-    "nombreVuelo": "pp",
-    "origen": "asdad",
-    "destino": "asdasd",
-    "fechaSalida": "2025-12-03",
-    "asientosLibre": 800,
-    "precio": [],
-    "listaDePasajeros": []
-  },
-  {
-    "id": 77,
-    "nombreVuelo": "dads",
-    "origen": "dad",
-    "destino": "dsfad",
-    "fechaSalida": "2025-12-12",
-    "asientosLibre": 500,
-    "precio": [],
-    "listaDePasajeros": []
-  },
-  {
-    "id": 1,
-    "nombreVuelo": "fgfg",
-    "origen": "gsdfg",
-    "destino": "fsfg",
-    "fechaSalida": "2025-11-30",
-    "asientosLibre": 500,
-    "precio": [],
-    "listaDePasajeros": []
   }
+  
 ]

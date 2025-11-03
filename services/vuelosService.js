@@ -326,7 +326,7 @@ filtrarVuelos() {
   // Mostrar pasajeros solo si existen
   if (vueloEncontrado.listaDePasajeros.length > 0) {
     console.log("Lista de pasajeros:");
-    console.table(vueloEncontrado.listaDePasajeros);
+    console.log(vueloEncontrado.listaDePasajeros);
   } else {
     console.log("Pasajeros: Ninguno");
   }

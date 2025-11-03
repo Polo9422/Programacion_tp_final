@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import promptSync from "prompt-sync";
 import { modelPasajero/*, calcularEdad*/} from "../modelos/modeloPasajeros.js";
+import { vuelosService } from "../services/vuelosService.js";
 
 
 const prompt = promptSync();
@@ -204,27 +205,85 @@ filtrarPasajero() {
 // Registrar pasajero a un vuelo (base)
 
 registrarPasajeroVuelo() {
-    console.clear();
-    console.log("=== Registrar Pasajero a Vuelo ===");
+  console.clear();
+  console.log("=== Registrar Pasajero a un Vuelo ===");
 
-    const dni = parseInt(prompt("Ingrese el DNI del pasajero: "));
-    const pasajero = pasajeros.find((p) => p.dni === dni);
+  const vueloSrv = new vuelosService(); // crear instancia del servicio de vuelos
 
-    if (!pasajero) {
-        console.log(" Pasajero no encontrado.");
-        return prompt("Presione ENTER para continuar...");
-    }
+  const dni = parseInt(prompt("Ingrese el DNI del pasajero: "));
+  const pasajero = this.pasajeros.find(p => p.dni === dni);
 
-    // Por ahora es un placeholder
-    console.log(`✈️ Registrando pasajero ${pasajero.nombre} ${pasajero.apellido} a un vuelo...`);
-    console.log("(Integración con módulo de vuelos pendiente)");
+  if (!pasajero) {
+    console.log("❌ Pasajero no encontrado.");
+    return;
+  }
 
-    prompt("Presione ENTER para continuar...");
+  const idVuelo = parseInt(prompt("Ingrese el ID del vuelo: "));
+  const vuelo = vueloSrv.buscarVueloPorId(idVuelo);
+
+  if (!vuelo) {
+    console.log("❌ Vuelo no encontrado.");
+    return ;
+  }
+
+  if (vuelo.asientosLibre <= 0) {
+    console.log("⚠️ No hay asientos disponibles en este vuelo.");
+    return ;
+  }
+
+  // Agregar pasajero (solo nombre y apellido)
+  vuelo.listaDePasajeros.push({
+    nombre: pasajero.nombre,
+    apellido: pasajero.apellido,
+    dni: pasajero.dni
+  });
+
+  // Reducir asientos
+  vuelo.asientosLibre--;
+
+  // Agregar el vuelo al historial del pasajero
+  pasajero.historialDeVuelos.push({
+    idVuelo: vuelo.id,
+    nombreVuelo: vuelo.nombreVuelo,
+    destino: vuelo.destino
+  });
+
+  // Guardar los cambios en ambos JSON
+  vueloSrv.guardarVuelos();
+  this.guardarPasajeros();
+
+  console.log(`✅ ${pasajero.nombre} ${pasajero.apellido} agregado al vuelo ${vuelo.nombreVuelo}.`);
 }
 
 buscarPasajeroPorId(id) {
   const idNum = parseInt(id);
   return this.pasajeros.find(pasajero => pasajero.dni == idNum);
+}
+
+mostrarHistorialDeVuelos() {
+  console.clear();
+  console.log("=== Historial de vuelos de un pasajero ===");
+
+  const dni = parseInt(prompt("Ingrese el DNI del pasajero: "));
+  const pasajero = this.pasajeros.find(p => p.dni === dni);
+
+  if (!pasajero) {
+    console.log("❌ No se encontró ningún pasajero con ese DNI.");
+    return prompt("Presione ENTER para continuar...");
+  }
+
+  if (!Array.isArray(pasajero.historialDeVuelos) || pasajero.historialDeVuelos.length === 0) {
+    console.log(`⚠️ El pasajero ${pasajero.nombre} no tiene vuelos registrados.`);
+    return prompt("Presione ENTER para continuar...");
+  }
+
+  console.log(`\n🧳 Historial de vuelos de ${pasajero.nombre}:`);
+  pasajero.historialDeVuelos.forEach((vuelo, index) => {
+    console.log(`\n✈️ Vuelo #${index + 1}`);
+    console.log(`🆔 ID de vuelo: ${vuelo.idVuelo}`);
+    console.log(`📍 Destino: ${vuelo.destino}`);
+    console.log(`🪪 Nombre del vuelo: ${vuelo.nombreVuelo}`);
+  });
 }
 
 

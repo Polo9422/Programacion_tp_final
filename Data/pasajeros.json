@@ -7,7 +7,8 @@
     "email": "carlos.perez@example.com",
     "genero": "masculino",
     "nacionalidad": "argentina",
-    "fecha_de_nacimiento": "1990-04-15"
+    "fecha_de_nacimiento": "1990-04-15",
+    "historialDeVuelos": []
   },
   {
     "nombre": "Lucia Gomez",
@@ -17,7 +18,8 @@
     "email": "lucia.gomez@example.com",
     "genero": "femenino",
     "nacionalidad": "argentina",
-    "fecha_de_nacimiento": "1996-08-22"
+    "fecha_de_nacimiento": "1996-08-22",
+    "historialDeVuelos": []
   },
   {
     "nombre": "Martin Lopez",
@@ -27,7 +29,24 @@
     "email": "martin.lopez@example.com",
     "genero": "masculino",
     "nacionalidad": "uruguaya",
-    "fecha_de_nacimiento": "1999-02-10"
+    "fecha_de_nacimiento": "1999-02-10",
+    "historialDeVuelos": [
+      {
+        "idVuelo": "70",
+        "nombreVuelo": "IB9625",
+        "destino": "Roma"
+      },
+      {
+        "idVuelo": "69",
+        "nombreVuelo": "LA4726",
+        "destino": "Miami"
+      },
+      {
+        "idVuelo": "67",
+        "nombreVuelo": "AI7781",
+        "destino": "Madrid"
+      }
+    ]
   },
   {
     "nombre": "Sofia Ruiz",
@@ -37,7 +56,8 @@
     "email": "sofia.ruiz@example.com",
     "genero": "femenino",
     "nacionalidad": "chilena",
-    "fecha_de_nacimiento": "1995-11-30"
+    "fecha_de_nacimiento": "1995-11-30",
+    "historialDeVuelos": []
   },
   {
     "nombre": "Pocho Torres",
@@ -48,6 +68,7 @@
     "genero": "sdfsf",
     "nacionalidad": "sdfsdf",
     "fecha_de_nacimiento": "1993-07-09",
-    "apellido": "Gomez"
+    "apellido": "Gomez",
+    "historialDeVuelos": []
   }
 ]

@@ -60,6 +60,7 @@ const menuPasajero = function () {
     console.log(" 4 - Lista de pasajeros");
     console.log(" 5 - Buscar pasajero");
     console.log(" 6 - Registrar pasajero a vuelo ");
+    console.log(" 7 - Mostrar historial de vuelos de un pasajero");
     console.log(" 0 - Volver");
 
     switch (prompt("Elija una opción: ")) {
@@ -98,7 +99,11 @@ const menuPasajero = function () {
             servicioPasajero.registrarPasajeroVuelo(); 
             prompt("Presione ENTER para continuar...");
             break;
-
+        case "7":
+            console.clear();
+            servicioPasajero.mostrarHistorialDeVuelos(); 
+            prompt("Presione ENTER para continuar...");
+            break;
         case "0":
             console.clear();
             console.log("Elegiste volver");
