@@ -1,7 +1,8 @@
 import fs from "fs";
 import path, { parse } from "path";
 import promptSync from "prompt-sync";
-import { ModeloAerolineas } from "./modeloAerolineas.js"; 
+import { ModeloVuelos } from "../modelos/modeloVuelos.js"; 
+
 
 const prompt = promptSync();
 
