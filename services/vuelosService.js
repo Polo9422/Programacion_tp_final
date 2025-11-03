@@ -91,7 +91,7 @@ registrarVuelo() {
     if (fs.existsSync(this.ruta)) {
       const contenido = fs.readFileSync(this.ruta, "utf-8");
       this.vuelos = JSON.parse(contenido);
-      console.log(` ${this.vuelos.length} vuelos cargados.`);
+      //console.log(` ${this.vuelos.length} vuelos cargados.`);
     } else {
       console.log(" No se encontró el archivo vuelos.json. Se inicia vacío.");
       this.vuelos = [];

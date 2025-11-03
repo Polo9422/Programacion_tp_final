@@ -54,12 +54,12 @@ const menuPasajero = function () {
     let salir = false;
     console.clear();
     console.log("Elija una opción");
-    console.log(" 1 - Registrar pasajero a vuelo");
+    console.log(" 1 - Crear pasajero");
     console.log(" 2 - Modificar datos de pasajero");
     console.log(" 3 - Borrar pasajero");
     console.log(" 4 - Lista de pasajeros");
-    console.log(" 5 - Filtrar pasajero");
-    console.log(" 6 - Registrar pasajero a vuelo (base)");
+    console.log(" 5 - Buscar pasajero");
+    console.log(" 6 - Registrar pasajero a vuelo ");
     console.log(" 0 - Volver");
 
     switch (prompt("Elija una opción: ")) {

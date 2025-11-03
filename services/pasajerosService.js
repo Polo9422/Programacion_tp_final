@@ -19,7 +19,7 @@ cargarPasajeros() {
     if (fs.existsSync(this.ruta)) {
       const contenido = fs.readFileSync(this.ruta, "utf-8");
       this.pasajeros = JSON.parse(contenido);
-      console.log(` ${this.pasajeros.length} pasajeros cargados.`);
+      //console.log(` ${this.pasajeros.length} pasajeros cargados.`);
     } else {
       console.log(" No se encontró el archivo pasajeros.json. Se inicia vacío.");
       this.pasajeros = [];
@@ -82,7 +82,7 @@ modificarPasajero() {
     console.clear();
     console.log("=== Modificar Pasajero ===");
     const dni = parseInt(prompt("Ingrese el DNI del pasajero a modificar: "));
-    const pasajero = pasajeros.find((p) => p.dni === dni);
+    const pasajero = this.pasajeros.find((p) => p.dni === dni);
 
     if (!pasajero) {
             console.log("Pasajero NO encontrado.");
@@ -100,7 +100,6 @@ modificarPasajero() {
 
     this.guardarPasajeros();
     console.log("\n Pasajero modificado con éxito.");
-    prompt("Presione ENTER para continuar...");
     }
 
 
@@ -145,7 +144,7 @@ listarPasajero() {
     } else {
         this.pasajeros.forEach((p, i) => {
             console.log(
-                `#${i + 1} | ${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad} | Pasaporte: ${p.pasaporte || "No asignado"}`
+                `#${i + 1} | ${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad}`
             );
         });
     }

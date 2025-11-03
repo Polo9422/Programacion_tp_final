@@ -40,13 +40,14 @@
     "fecha_de_nacimiento": "1995-11-30"
   },
   {
-    "nombre": "Diego Torres",
+    "nombre": "Pocho Torres",
     "dni": 5,
-    "telefono": "1156781234",
-    "direccion": "Rivadavia 890",
-    "email": "diego.torres@example.com",
-    "genero": "masculino",
-    "nacionalidad": "paraguaya",
-    "fecha_de_nacimiento": "1993-07-09"
+    "telefono": "sdfsf",
+    "direccion": "sdfsdf",
+    "email": "sdfsf",
+    "genero": "sdfsf",
+    "nacionalidad": "sdfsdf",
+    "fecha_de_nacimiento": "1993-07-09",
+    "apellido": "Gomez"
   }
 ]
