@@ -24,13 +24,15 @@ const menuVuelo = function (){
             servicio.modificarVuelo();
             prompt("Presione ENTER para continuar...");
             break;
+        case "2":
+            servicio.modificarVuelo();
+            break;
         case "3":
             servicio.borrarVuelo();
-            prompt("Presione ENTER para continuar...");
             break;
         case "4":
             servicio.listarVuelos();
-            prompt("Presione ENTER para continuar...");
+          prompt("Presione ENTER para continuar...");
           break;
         case "5":
             servicio.filtrarVuelos();

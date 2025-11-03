@@ -12,6 +12,7 @@ export class pasajerosService {
     this.pasajeros = [];
     this.ruta = path.resolve("./Data/pasajeros.json");
     this.cargarPasajeros();
+
     }
 // Función para crear un pasajero
 cargarPasajeros() {
@@ -38,6 +39,7 @@ crearPasajero() {
     const genero = prompt("Género: ");
     const nacionalidad = prompt("Nacionalidad: ");
     const fecha_nacimiento = prompt("Fecha de nacimiento (dd/mm/aaaa): ");
+    const historialDeVuelos = [];
 
     const nuevoPasajero = new modelPasajero(
         nombre,
@@ -50,7 +52,7 @@ crearPasajero() {
         genero,
         nacionalidad,
         fecha_nacimiento,
-        //null// crear el historial de vuelos
+
         );
 
     this.pasajeros.push(nuevoPasajero);
@@ -74,6 +76,7 @@ guardarPasajeros() {
     fs.writeFileSync(this.ruta, JSON.stringify(this.pasajeros, null, 2), "utf-8");
   }
 //CASE 2Función para modificar un pasajero
+
 
 modificarPasajero() {
     console.clear();
@@ -213,7 +216,7 @@ registrarPasajeroVuelo() {
         return prompt("Presione ENTER para continuar...");
     }
 
-// Por ahora es un placeholder
+    // Por ahora es un placeholder
     console.log(`✈️ Registrando pasajero ${pasajero.nombre} ${pasajero.apellido} a un vuelo...`);
     console.log("(Integración con módulo de vuelos pendiente)");
 
@@ -224,5 +227,6 @@ buscarPasajeroPorId(id) {
   const idNum = parseInt(id);
   return this.pasajeros.find(pasajero => pasajero.dni == idNum);
 }
+
 
 }

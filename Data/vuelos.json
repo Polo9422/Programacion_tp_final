@@ -786,24 +786,63 @@
     "listaDePasajeros": []
   },
   {
-    "id": 72,
-    "nombreVuelo": "yo",
-    "origen": "otro",
-    "destino": "al otro lado",
-    "fechaSalida": "2025-2",
-    "duracion": 5,
-    "asientosLibre": 4,
-    "precio": 45,
+    "id": 73,
+    "nombreVuelo": "juan",
+    "origen": "asfsdfasd",
+    "destino": "adsfadsfa",
+    "fechaSalida": "adsfadf",
+    "duracion": null,
+    "asientosLibre": null,
+    "precio": null,
     "listaDePasajeros": []
   },
   {
     "id": 74,
-    "nombreVuelo": "yopo",
-    "origen": "tongo",
-    "destino": "gfggg",
-    "fechaSalida": "11",
-    "duracion": 33,
-    "asientosLibre": 44,
+    "nombreVuelo": "5464",
+    "origen": "5464",
+    "destino": "5161",
+    "fechaSalida": "64161",
+    "asientosLibre": 61161,
+    "precio": [],
+    "listaDePasajeros": []
+  },
+  {
+    "id": 75,
+    "nombreVuelo": "1",
+    "origen": "232",
+    "destino": "3313",
+    "fechaSalida": "13131",
+    "asientosLibre": 6166,
+    "precio": [],
+    "listaDePasajeros": []
+  },
+  {
+    "id": 76,
+    "nombreVuelo": "pp",
+    "origen": "asdad",
+    "destino": "asdasd",
+    "fechaSalida": "2025-12-03",
+    "asientosLibre": 800,
+    "precio": [],
+    "listaDePasajeros": []
+  },
+  {
+    "id": 77,
+    "nombreVuelo": "dads",
+    "origen": "dad",
+    "destino": "dsfad",
+    "fechaSalida": "2025-12-12",
+    "asientosLibre": 500,
+    "precio": [],
+    "listaDePasajeros": []
+  },
+  {
+    "id": 1,
+    "nombreVuelo": "fgfg",
+    "origen": "gsdfg",
+    "destino": "fsfg",
+    "fechaSalida": "2025-11-30",
+    "asientosLibre": 500,
     "precio": [],
     "listaDePasajeros": []
   }
