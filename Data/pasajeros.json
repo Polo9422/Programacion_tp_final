@@ -1,7 +1,7 @@
 [
   {
     "nombre": "Carlos Perez",
-    "dni": 34567890,
+    "dni": 1,
     "telefono": "1134567890",
     "direccion": "Av Siempre Viva 123",
     "email": "carlos.perez@example.com",
@@ -11,7 +11,7 @@
   },
   {
     "nombre": "Lucia Gomez",
-    "dni": 38214567,
+    "dni": 2,
     "telefono": "1167892345",
     "direccion": "Calle San Martin 456",
     "email": "lucia.gomez@example.com",
@@ -21,7 +21,7 @@
   },
   {
     "nombre": "Martin Lopez",
-    "dni": 40123987,
+    "dni": 3,
     "telefono": "1145678901",
     "direccion": "Belgrano 789",
     "email": "martin.lopez@example.com",
@@ -31,7 +31,7 @@
   },
   {
     "nombre": "Sofia Ruiz",
-    "dni": 39234561,
+    "dni": 4,
     "telefono": "1123456789",
     "direccion": "Mitre 234",
     "email": "sofia.ruiz@example.com",
@@ -41,7 +41,7 @@
   },
   {
     "nombre": "Diego Torres",
-    "dni": 37890123,
+    "dni": 5,
     "telefono": "1156781234",
     "direccion": "Rivadavia 890",
     "email": "diego.torres@example.com",

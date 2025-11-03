@@ -1,6 +1,8 @@
-import promptSync from "prompt-sync";
-import { modelPasajero, calcularEdad} from "../modelos/modeloPasajeros.js";
+import fs from "fs";
 import path from "path";
+import promptSync from "prompt-sync";
+import { modelPasajero/*, calcularEdad*/} from "../modelos/modeloPasajeros.js";
+
 
 const prompt = promptSync();
 
@@ -9,9 +11,19 @@ export class pasajerosService {
   constructor() {
     this.pasajeros = [];
     this.ruta = path.resolve("./Data/pasajeros.json");
+    this.cargarPasajeros();
     }
 // Función para crear un pasajero
-
+cargarPasajeros() {
+    if (fs.existsSync(this.ruta)) {
+      const contenido = fs.readFileSync(this.ruta, "utf-8");
+      this.pasajeros = JSON.parse(contenido);
+      console.log(` ${this.pasajeros.length} pasajeros cargados.`);
+    } else {
+      console.log(" No se encontró el archivo pasajeros.json. Se inicia vacío.");
+      this.pasajeros = [];
+    }
+  }
 crearPasajero() {
     console.clear();
     console.log("=== Crear Pasajero ===");
@@ -38,15 +50,15 @@ crearPasajero() {
         genero,
         nacionalidad,
         fecha_nacimiento,
-        null
+        //null// crear el historial de vuelos
         );
 
-    pasajeros.push(nuevoPasajero);
+    this.pasajeros.push(nuevoPasajero);
     console.log("\n✅ Pasajero creado correctamente.");
 
     // Preguntar si quiere generar un pasaporte
-    const generarPasaporte = prompt("¿Desea generar pasaporte para este pasajero? (s/n): ").toLowerCase();
-    if (generarPasaporte === "s") {
+    //const generarPasaporte = prompt("¿Desea generar pasaporte para este pasajero? (s/n): ").toLowerCase();
+    /*if (generarPasaporte === "s") {
         const numero = prompt("Número de pasaporte: ");
         const vencimiento = prompt("Fecha de vencimiento: ");
         const pais = prompt("País de emisión: ");
@@ -55,10 +67,12 @@ crearPasajero() {
         pasaportes.push(nuevoPasaporte);
         nuevoPasajero.pasaporte = nuevoPasaporte.numero_pasaporte;
         console.log("🛂 Pasaporte creado y asignado al pasajero.");
-        }
+        }*/
 
-        }
-
+    }
+guardarPasajeros() {
+    fs.writeFileSync(this.ruta, JSON.stringify(this.pasajeros, null, 2), "utf-8");
+  }
 //CASE 2Función para modificar un pasajero
 
 modificarPasajero() {
@@ -81,6 +95,7 @@ modificarPasajero() {
     pasajero.genero = prompt(`Género (${pasajero.genero}): `) || pasajero.genero;
     pasajero.nacionalidad = prompt(`Nacionalidad (${pasajero.nacionalidad}): `) || pasajero.nacionalidad;
 
+    this.guardarPasajeros();
     console.log("\n Pasajero modificado con éxito.");
     prompt("Presione ENTER para continuar...");
     }
@@ -122,17 +137,16 @@ listarPasajero() {
     console.clear();
     console.log("=== Lista de Pasajeros ===");
 
-    if (pasajeros.length === 0) {
+    if (this.pasajeros.length === 0) {
         console.log("No hay pasajeros registrados.");
     } else {
-        pasajeros.forEach((p, i) => {
+        this.pasajeros.forEach((p, i) => {
             console.log(
                 `#${i + 1} | ${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad} | Pasaporte: ${p.pasaporte || "No asignado"}`
             );
         });
     }
 
-    prompt("Presione ENTER para continuar..."); // ← agregá esta línea
 }
 
 
@@ -140,9 +154,33 @@ listarPasajero() {
 
 filtrarPasajero() {
     console.clear();
-    console.log("=== Filtrar Pasajeros ===");
-    const criterio = prompt("Ingrese nombre, apellido o nacionalidad: ").toLowerCase();
-    const filtrados = pasajeros.filter(
+    //console.log("=== Filtrar Pasajeros ===");
+    //const criterio = prompt("Ingrese nombre, apellido o nacionalidad: ").toLowerCase();
+    const dniPasajero = prompt("DNI del pasajero: ");
+    const pasajeroEncontrado = this.buscarPasajeroPorId(dniPasajero);
+    if (pasajeroEncontrado) {
+ //   console.table(vueloEncontrado); // o console.log(vueloEncontrado)
+  console.log(`ID: ${pasajeroEncontrado.id} | ${pasajeroEncontrado.nombre} | ${pasajeroEncontrado.apellido} | ${pasajeroEncontrado.dni}`);
+            // Esto imprime la información complementaria del vuelo: Fecha de salida, duración, asientos libres y precio.
+            console.log(`Nombre: ${pasajeroEncontrado.nombre} | Apellido: ${pasajeroEncontrado.apellido} | DNI: ${pasajeroEncontrado.dni}`);
+            // si la lista de pasajeros está vacía o no existe, muestra "Ninguno". Si hay pasajeros, los lista uno por uno
+            if (!pasajeroEncontrado.historialDeVuelos || pasajeroEncontrado.historialDeVuelos.length === 0) {
+                console.log("Pasajeros: Ninguno\n");
+              
+            } else {
+              // Si hay pasajeros, los lista uno por uno
+                pasajeroEncontrado.historialDeVuelos.forEach((p, i) => {
+                    console.log(`  ${i + 1}. ${p.nombre || "Sin nombre"} ${p.apellido || "Sin apellido"} | DNI: ${p.dni || "Sin DNI"}`);
+                });
+                console.log(""); // línea en blanco entre vuelos
+            }
+    return pasajeroEncontrado;         // <-- devuelve el pasajero completo
+  } else {
+    console.log("Pasajero no encontrado.");
+    return null;
+  }
+    /*
+    const filtrados = this.pasajeros.filter(
         (p) =>
         p.nombre.toLowerCase().includes(criterio) ||
         p.apellido.toLowerCase().includes(criterio) ||
@@ -157,7 +195,7 @@ filtrarPasajero() {
         `${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad} | Pasaporte: ${p.pasaporte || "No asignado"}`
         );
         });
-    }
+    }*/
 
     }
 
@@ -181,4 +219,10 @@ registrarPasajeroVuelo() {
 
     prompt("Presione ENTER para continuar...");
 }
+
+buscarPasajeroPorId(id) {
+  const idNum = parseInt(id);
+  return this.pasajeros.find(pasajero => pasajero.dni == idNum);
+}
+
 }
