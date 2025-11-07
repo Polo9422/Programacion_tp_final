@@ -1,5 +1,5 @@
 import fs from "fs";
-import path, { parse } from "path";
+import path from "path";
 import promptSync from "prompt-sync";
 import { ModeloVuelos } from "../modelos/modeloVuelos.js"; 
 
@@ -20,6 +20,7 @@ registrarVuelo() {
   let nombreVuelo;
   while (true) {
     const input = prompt("Nombre del vuelo: ").trim();
+    console.log(input+"<-input");
     if (this.validarTexto(input, "Nombre del vuelo")) {
       nombreVuelo = input;
       break;

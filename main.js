@@ -58,9 +58,10 @@ const menuPasajero = function () {
     console.log(" 2 - Modificar datos de pasajero");
     console.log(" 3 - Borrar pasajero");
     console.log(" 4 - Lista de pasajeros");
-    console.log(" 5 - Buscar pasajero");
+    console.log(" 5 - Buscar pasajero por DNI");
     console.log(" 6 - Registrar pasajero a vuelo ");
     console.log(" 7 - Mostrar historial de vuelos de un pasajero");
+    console.log(" 8 - Buscar pasajero por nombre o nacionalidad");
     console.log(" 0 - Volver");
 
     switch (prompt("Elija una opción: ")) {
@@ -102,6 +103,11 @@ const menuPasajero = function () {
         case "7":
             console.clear();
             servicioPasajero.mostrarHistorialDeVuelos(); 
+            prompt("Presione ENTER para continuar...");
+            break;
+        case "8":
+            console.clear();
+            servicioPasajero.filtrarPasajeroPorNombre(); 
             prompt("Presione ENTER para continuar...");
             break;
         case "0":

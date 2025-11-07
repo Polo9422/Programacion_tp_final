@@ -157,12 +157,12 @@ listarPasajero() {
 
 filtrarPasajero() {
     console.clear();
-    //console.log("=== Filtrar Pasajeros ===");
-    //const criterio = prompt("Ingrese nombre, apellido o nacionalidad: ").toLowerCase();
+    console.log("=== Buscar Pasajeros  por DNI ===");
+    //const criterio = prompt("Ingrese nombre, apellido, nacionalidad o DNI: ").toLowerCase();
     const dniPasajero = prompt("DNI del pasajero: ");
     const pasajeroEncontrado = this.buscarPasajeroPorId(dniPasajero);
-    if (pasajeroEncontrado) {
- //   console.table(vueloEncontrado); // o console.log(vueloEncontrado)
+   if (pasajeroEncontrado) {
+ //   console.table(vueloEncontrado); // o console.log(vueloEncontrado)/////ESTO NO ESTABA ANTES
   console.log(`ID: ${pasajeroEncontrado.id} | ${pasajeroEncontrado.nombre} | ${pasajeroEncontrado.apellido} | ${pasajeroEncontrado.dni}`);
             // Esto imprime la información complementaria del vuelo: Fecha de salida, duración, asientos libres y precio.
             console.log(`Nombre: ${pasajeroEncontrado.nombre} | Apellido: ${pasajeroEncontrado.apellido} | DNI: ${pasajeroEncontrado.dni}`);
@@ -182,12 +182,20 @@ filtrarPasajero() {
     console.log("Pasajero no encontrado.");
     return null;
   }
-    /*
+
+
+
+ }
+filtrarPasajeroPorNombre(){
+    console.clear();
+    console.log("=== Buscar Pasajeros ===");
+    const criterio = prompt("Ingrese nombre o nacionalidad: ").toLowerCase();
     const filtrados = this.pasajeros.filter(
         (p) =>
         p.nombre.toLowerCase().includes(criterio) ||
-        p.apellido.toLowerCase().includes(criterio) ||
+        //p.apellido.toLowerCase().includes(criterio) ||
         p.nacionalidad.toLowerCase().includes(criterio)
+        ///p.dni.toLowerCase().includes(criterio)//.includes(Number(criterio))
         );
 
     if (filtrados.length === 0) {
@@ -198,10 +206,8 @@ filtrarPasajero() {
         `${p.nombre} ${p.apellido} | DNI: ${p.dni} | Edad: ${p.edad} | Nacionalidad: ${p.nacionalidad} | Pasaporte: ${p.pasaporte || "No asignado"}`
         );
         });
-    }*/
-
     }
-
+}
 // Registrar pasajero a un vuelo (base)
 
 registrarPasajeroVuelo() {
